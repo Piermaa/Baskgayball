@@ -459,9 +459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a30c968bad1134c8f863e05c4a5695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.ArmController
-  restAngle: 0
-  maxChargeAngle: 150
-  chargeSpeedDegPerSec: 220
+  restAngle: -5
+  maxChargeAngle: 220
+  chargeSpeedDegPerSec: 360
   minThrowForce: 4
   maxThrowForce: 14
   maxChargeTimeForFullForce: 0.8
@@ -670,7 +670,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.912}
+  m_ConnectedAnchor: {x: 0, y: 0.91199994}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

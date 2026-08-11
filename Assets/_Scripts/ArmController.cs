@@ -52,7 +52,7 @@ namespace BaskgayBall.Player
     
         public void SetFacing(bool facesRight)
         {
-            _facingSign = -1;
+            _facingSign = facesRight ? 1 : -1;
         }
 
         public Vector2 EndChargeAndGetThrowVelocity()
@@ -63,10 +63,7 @@ namespace BaskgayBall.Player
             float force = Mathf.Lerp(minThrowForce, maxThrowForce, chargeRatio);
 
             float angleRad = _currentAngle * Mathf.Deg2Rad;
-            Vector2 localDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
-            Vector2 direction = transform.parent != null
-                ? transform.parent.TransformDirection(localDirection)
-                : localDirection;
+            Vector2 direction = new Vector2(force, force);
 
             direction.x *= _facingSign;
 
