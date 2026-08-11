@@ -1,8 +1,9 @@
-using UnityEngine;
 using BaskgayBall.Ball;
+using UnityEngine;
 
 namespace BaskgayBall.Player
 {
+
     [RequireComponent(typeof(Collider2D))]
     public class BallGrabHandler : MonoBehaviour
     {
@@ -13,9 +14,14 @@ namespace BaskgayBall.Player
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out Ball.Ball ball))
+            if (!other.TryGetComponent(out Ball.Ball ball)) return;
+
+            _ballInRange = ball;
+
+         
+            if (ball.State == BallState.Free)
             {
-                _ballInRange = ball;
+                TryGrab();
             }
         }
 
@@ -27,10 +33,6 @@ namespace BaskgayBall.Player
             }
         }
 
-        /// <summary>
-        /// Intenta agarrar la pelota que esté en rango y libre. No hace nada
-        /// si ya se está sosteniendo una o si no hay ninguna disponible.
-        /// </summary>
         public bool TryGrab()
         {
             if (_heldBall != null) return false;
@@ -40,8 +42,6 @@ namespace BaskgayBall.Player
             _heldBall.OnGrabbed(transform);
             return true;
         }
-
-        /// <summary>Tira la pelota sostenida con la velocidad indicada.</summary>
         public bool Throw(Vector2 velocity)
         {
             if (_heldBall == null) return false;

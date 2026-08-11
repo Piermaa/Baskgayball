@@ -49,6 +49,7 @@ MonoBehaviour:
   side: 0
   arm: {fileID: 4295093815631642601}
   hand: {fileID: 3947326505000316495}
+  facesRight: 1
   bodyMovement: {fileID: 0}
 --- !u!1 &2108953484969260044
 GameObject:
@@ -61,7 +62,7 @@ GameObject:
   - component: {fileID: 7562046005680139674}
   - component: {fileID: 7986018771956959808}
   - component: {fileID: 1065620820749197571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +161,7 @@ GameObject:
   - component: {fileID: 6022148985309923636}
   - component: {fileID: 6538743850701543520}
   - component: {fileID: 3947326505000316495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +439,7 @@ Transform:
   m_GameObject: {fileID: 5744152642354754424}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.444, y: 0.323, z: 0}
+  m_LocalPosition: {x: -0.294, y: 0.323, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -567,7 +568,7 @@ GameObject:
   - component: {fileID: 5827692688320691653}
   - component: {fileID: 5401753790563560336}
   - component: {fileID: 2167893255611522049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

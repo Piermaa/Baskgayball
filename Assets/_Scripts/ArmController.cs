@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace BaskgayBall.Player
 {
+   
     public class ArmController : MonoBehaviour
     {
         [Header("Ángulos (grados, 0 = horizontal)")]
@@ -19,6 +20,7 @@ namespace BaskgayBall.Player
         private float _currentAngle;
         private float _chargeElapsed;
         private bool _isCharging;
+        private float _facingSign = 1f; // 1 = mira a la derecha, -1 = mira a la izquierda
 
         private void Awake()
         {
@@ -47,6 +49,12 @@ namespace BaskgayBall.Player
             _chargeElapsed = 0f;
         }
 
+    
+        public void SetFacing(bool facesRight)
+        {
+            _facingSign = -1;
+        }
+
         public Vector2 EndChargeAndGetThrowVelocity()
         {
             _isCharging = false;
@@ -60,6 +68,8 @@ namespace BaskgayBall.Player
                 ? transform.parent.TransformDirection(localDirection)
                 : localDirection;
 
+            direction.x *= _facingSign;
+
             return direction.normalized * force;
         }
 
@@ -68,5 +78,4 @@ namespace BaskgayBall.Player
             transform.localRotation = Quaternion.Euler(0f, 0f, _currentAngle);
         }
     }
-
 }
