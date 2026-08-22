@@ -4,30 +4,26 @@ using UnityEngine;
 
 namespace BaskgayBall.Player
 {
-
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ISided
     {
         [SerializeField] private PlayerSide side;
         [SerializeField] private ArmController arm;
         [SerializeField] private BallGrabHandler hand;
 
-      
         [SerializeField] private bool facesRight = true;
 
-        [SerializeField] private MonoBehaviour bodyMovement;
+        [SerializeField] private BodyMovement bodyMovement;
+
+        public PlayerSide Side => side;
 
         private void Awake()
         {
-            ApplyFacing();
+            BasketHelpers.ApplyFacing(transform, facesRight);
         }
 
-        private void ApplyFacing()
+        private void OnDrawGizmosSelected()
         {
-            float xSign = facesRight ? 1f : -1f;
-            Vector3 scale = transform.localScale;
-            transform.localScale = new Vector3(Mathf.Abs(scale.x) * xSign, scale.y, scale.z);
-
-            arm.SetFacing(facesRight);
+            BasketHelpers.ApplyFacing(transform, facesRight);
         }
 
         private void OnEnable()
@@ -52,14 +48,16 @@ namespace BaskgayBall.Player
         {
             if (pressedSide != side) return;
 
+            bodyMovement.Jump();
+            bodyMovement.SetHolding(true);
             arm.BeginCharge();
-            // TODO: llamar al salto del Body acá cuando el script de movimiento exista.
         }
 
         private void HandlePressEnd(PlayerSide pressedSide)
         {
             if (pressedSide != side) return;
 
+            bodyMovement.SetHolding(false);
             Vector2 throwVelocity = arm.EndChargeAndGetThrowVelocity();
 
             if (hand.IsHoldingBall)

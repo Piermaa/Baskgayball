@@ -2,25 +2,20 @@ using UnityEngine;
 
 namespace BaskgayBall.Player
 {
-   
     public class ArmController : MonoBehaviour
     {
-        [Header("Ángulos (grados, 0 = horizontal)")]
         [SerializeField] private float restAngle = -20f;
         [SerializeField] private float maxChargeAngle = 90f;
-
-        [Header("Velocidad de carga")]
         [SerializeField] private float chargeSpeedDegPerSec = 220f;
-
-        [Header("Tiro")]
         [SerializeField] private float minThrowForce = 4f;
         [SerializeField] private float maxThrowForce = 14f;
         [SerializeField] private float maxChargeTimeForFullForce = 0.8f;
+        [SerializeField] private Transform handTransform;
+        [SerializeField] private float verticalBoost = 0.5f;
 
         private float _currentAngle;
         private float _chargeElapsed;
         private bool _isCharging;
-        private float _facingSign = 1f; // 1 = mira a la derecha, -1 = mira a la izquierda
 
         private void Awake()
         {
@@ -49,12 +44,6 @@ namespace BaskgayBall.Player
             _chargeElapsed = 0f;
         }
 
-    
-        public void SetFacing(bool facesRight)
-        {
-            _facingSign = facesRight ? 1 : -1;
-        }
-
         public Vector2 EndChargeAndGetThrowVelocity()
         {
             _isCharging = false;
@@ -62,12 +51,11 @@ namespace BaskgayBall.Player
             float chargeRatio = Mathf.Clamp01(_chargeElapsed / maxChargeTimeForFullForce);
             float force = Mathf.Lerp(minThrowForce, maxThrowForce, chargeRatio);
 
-            float angleRad = _currentAngle * Mathf.Deg2Rad;
-            Vector2 direction = new Vector2(force, force);
-
-            direction.x *= _facingSign;
-
-            return direction.normalized * force;
+            Vector2 rawDirection = (Vector2)handTransform.position - (Vector2)transform.position;
+            rawDirection.y += verticalBoost;
+            Vector2 direction = rawDirection.normalized;
+            direction.x *= -1;
+            return direction * force;
         }
 
         private void ApplyRotation()

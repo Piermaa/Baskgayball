@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &234277320341039281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8154686678258411586}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8154686678258411586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234277320341039281}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7562046005680139674}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846225810727631591
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,7 +81,7 @@ MonoBehaviour:
   arm: {fileID: 4295093815631642601}
   hand: {fileID: 3947326505000316495}
   facesRight: 1
-  bodyMovement: {fileID: 0}
+  bodyMovement: {fileID: 2352921858483808011}
 --- !u!1 &2108953484969260044
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +93,7 @@ GameObject:
   - component: {fileID: 7562046005680139674}
   - component: {fileID: 7986018771956959808}
   - component: {fileID: 1065620820749197571}
+  - component: {fileID: 2352921858483808011}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -84,6 +116,7 @@ Transform:
   m_Children:
   - {fileID: 3781984732318235814}
   - {fileID: 8867164181686273230}
+  - {fileID: 8154686678258411586}
   m_Father: {fileID: 1267295289375157538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7986018771956959808
@@ -111,7 +144,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &1065620820749197571
 CapsuleCollider2D:
@@ -150,6 +183,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &2352921858483808011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108953484969260044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bcd7cfa14d97d14ba6e0bc6fce0a778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.Player.BodyMovement
+  jumpForce: 600
+  fallMultiplier: 5
+  lowJumpMultiplier: 2
+  groundCheck: {fileID: 8154686678258411586}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &3261544351611955228
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,10 +514,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.ArmController
   restAngle: -5
   maxChargeAngle: 220
-  chargeSpeedDegPerSec: 360
-  minThrowForce: 4
-  maxThrowForce: 14
+  chargeSpeedDegPerSec: 600
+  minThrowForce: 7
+  maxThrowForce: 20
   maxChargeTimeForFullForce: 0.8
+  handTransform: {fileID: 6022148985309923636}
+  verticalBoost: 1
 --- !u!1 &6399808691724774344
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +725,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.91199994}
+  m_ConnectedAnchor: {x: 0, y: 0.912}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
