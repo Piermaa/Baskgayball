@@ -33,12 +33,13 @@ namespace BaskgayBall.Input
 
         private void HandlePressStart(PlayerSide side)
         {
-            Debug.Log($"[Input] {side} -> PRESS");
+            
+        //    Debug.Log($"[Input] {side} -> PRESS");
         }
 
         private void HandlePressEnd(PlayerSide side)
         {
-            Debug.Log($"[Input] {side} -> RELEASE");
+      //      Debug.Log($"[Input] {side} -> RELEASE");
         }
     }
 }
