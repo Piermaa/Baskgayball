@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace BaskgayBall.Ball
@@ -42,6 +43,11 @@ namespace BaskgayBall.Ball
         public void OnSettled()
         {
             State = BallState.Free;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Handles.Label(transform.position+ new Vector3(0, .5f, 0), "State: " + State);
         }
     }
 }

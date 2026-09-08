@@ -19,7 +19,8 @@ namespace BaskgayBall.Player
             _ballInRange = ball;
 
          
-            if (ball.State == BallState.Free)
+            if (ball.State == BallState.Free ||
+                ball.State == BallState.InFlight)
             {
                 TryGrab();
             }
@@ -36,7 +37,9 @@ namespace BaskgayBall.Player
         public bool TryGrab()
         {
             if (_heldBall != null) return false;
-            if (_ballInRange == null || _ballInRange.State != BallState.Free) return false;
+            if (_ballInRange == null || 
+                (_ballInRange.State != BallState.Free && 
+                _ballInRange.State != BallState.InFlight)) return false;
 
             _heldBall = _ballInRange;
             _heldBall.OnGrabbed(transform);

@@ -17,7 +17,7 @@ TagManager:
   - Ground
   - Goal
   - GoalNet
-  - 
+  - GoalHead
   - 
   - 
   - 
@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background_Sky
+    uniqueID: 3230152799
+    locked: 0
+  - name: Background_Wall
+    uniqueID: 4276667029
+    locked: 0
+  - name: Background_Ground
+    uniqueID: 3069739935
+    locked: 0
   - name: Player_Head
     uniqueID: 3902441357
     locked: 0
@@ -49,6 +58,12 @@ TagManager:
     locked: 0
   - name: Player_Arm
     uniqueID: 3616082989
+    locked: 0
+  - name: Ball
+    uniqueID: 1147959667
+    locked: 0
+  - name: Basket
+    uniqueID: 1845678983
     locked: 0
   m_RenderingLayers:
   - Default

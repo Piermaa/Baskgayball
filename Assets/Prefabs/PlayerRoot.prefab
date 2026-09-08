@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 234277320341039281}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.998, z: 0}
+  m_LocalPosition: {x: 0, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180,8 +180,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.48052955}
+  m_Size: {x: 1, y: 2.961059}
   m_Direction: 0
 --- !u!114 &2352921858483808011
 MonoBehaviour:
@@ -199,10 +199,14 @@ MonoBehaviour:
   fallMultiplier: 5
   lowJumpMultiplier: 2
   groundCheck: {fileID: 8154686678258411586}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  uprightSpringStrength: 40
+  uprightSpringDamping: 4
+  landingWobbleTorque: 8
+  landingReferenceSpeed: 12
 --- !u!1 &3261544351611955228
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 3261544351611955228}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.932, z: 0}
+  m_LocalPosition: {x: -0.049, y: -1.213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,7 +275,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.18
+  m_Radius: 0.4
 --- !u!114 &3947326505000316495
 MonoBehaviour:
   m_ObjectHideFlags: 0
