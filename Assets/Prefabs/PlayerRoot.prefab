@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50337f5160cf5924ab7ff28baa62d784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.PlayerController
+  FacesRight: 0
   side: 0
   arm: {fileID: 4295093815631642601}
   hand: {fileID: 3947326505000316495}
@@ -207,6 +208,8 @@ MonoBehaviour:
   uprightSpringDamping: 60
   landingWobbleTorque: 600
   landingReferenceSpeed: 5
+  startWobbleTorque: 200
+  prefabRoot: {fileID: 1267295289375157538}
 --- !u!1 &3261544351611955228
 GameObject:
   m_ObjectHideFlags: 0

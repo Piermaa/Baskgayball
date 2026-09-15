@@ -6,6 +6,8 @@ namespace BaskgayBall.Player
 {
     public class PlayerController : MonoBehaviour, ISided
     {
+        public bool FacesRight => facesRight;
+
         [SerializeField] private EPlayerSide side;
         [SerializeField] private ArmController arm;
         [SerializeField] private BallGrabHandler hand;

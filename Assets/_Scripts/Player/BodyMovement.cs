@@ -1,9 +1,11 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace BaskgayBall.Player
 {
     enum EPlayerBodyRadgollState
     {
+        Start,
         JustLanded,
         Wobblinng,
         Stable,
@@ -11,20 +13,31 @@ namespace BaskgayBall.Player
     }
 
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BodyMovement : MonoBehaviour
+    public class BodyMovement : MonoBehaviour, IPrefabSubLogic
     {
+        public Transform PrefabRoot => prefabRoot;
+
+        [Header("Jump and falling")]
         [SerializeField] private float jumpForce = 8f;
         [SerializeField] private float fallMultiplier = 2.5f;
         [SerializeField] private float lowJumpMultiplier = 2f;
+        
+        [Header("Ground Check")]
         [SerializeField] private Transform groundCheck;
         [SerializeField] private float groundCheckRadius = 0.12f;
         [SerializeField] private LayerMask groundLayer;
 
-        [Header("Wobble (peso en la base)")]
+        [Header("Wobbling sprint movement")]
         [SerializeField] private float uprightSpringStrength = 40f;
         [SerializeField] private float uprightSpringDamping = 4f;
         [SerializeField] private float landingWobbleTorque = 8f;
         [SerializeField] private float landingReferenceSpeed = 12f;
+
+        [Header("Start Wobble")]
+        [SerializeField] private float startWobbleTorque = 8f;
+
+        [Header("Setup")]
+        [SerializeField] private Transform prefabRoot;
 
         private Rigidbody2D _rigidbody;
         private bool _isHolding;
@@ -33,11 +46,14 @@ namespace BaskgayBall.Player
 
         public bool IsGrounded { get; private set; }
 
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.centerOfMass = groundCheck.localPosition;
-            ApplyLandingWobble();
+            ragdollState = EPlayerBodyRadgollState.Start;
+            IsGrounded = true;
+            ApplyStartingWobble();
         }
 
         private void FixedUpdate()
@@ -50,7 +66,7 @@ namespace BaskgayBall.Player
                 ragdollState = EPlayerBodyRadgollState.JustLanded;
                 ApplyLandingWobble();
             }
-            else if (!groundedNow)
+            if (!groundedNow)
             {
                 ragdollState = EPlayerBodyRadgollState.OnAir;    
             }
@@ -72,6 +88,7 @@ namespace BaskgayBall.Player
             {
                 case EPlayerBodyRadgollState.JustLanded:
                 case EPlayerBodyRadgollState.Wobblinng:
+                case EPlayerBodyRadgollState.Start:
                     if (IsGrounded)
                     {
                         ApplyUprightSpring();
@@ -85,6 +102,15 @@ namespace BaskgayBall.Player
                     break;
             }
         }
+        private void ApplyStartingWobble()
+        {
+            float wobbleToApply = startWobbleTorque;
+            bool invertWobble = prefabRoot.GetComponent<PlayerController>().FacesRight;
+            wobbleToApply = invertWobble ? -wobbleToApply : wobbleToApply;
+            wobbleToApply *= Random.Range(.5f, 1.5f);
+            _rigidbody.AddTorque(wobbleToApply, ForceMode2D.Impulse);
+        }
+
 
         private void ApplyLandingWobble()
         {
@@ -124,6 +150,13 @@ namespace BaskgayBall.Player
 
             Gizmos.color = IsGrounded ? Color.green : Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
         }
+        //private void OnDrawGizmos()
+        //{
+        //    Handles.Label(
+        //        transform.position + new Vector3(0, 1, 0),
+        //        ragdollState.ToString());
+        //}
     }
 }
