@@ -88,28 +88,21 @@ namespace BaskgayBall.Player
 
         private void ApplyLandingWobble()
         {
-            print("Applied landing wobble");
-            //float impactSpeed = Mathf.Abs(_rigidbody.linearVelocity.y);
-            //float direction = Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f
-            //    ? Mathf.Sign(_rigidbody.linearVelocity.x)
-            //    : (Random.value > 0.5f ? 1f : -1f);
+            float impactSpeed = Mathf.Abs(_rigidbody.linearVelocity.y);
+            float direction = Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f
+                ? Mathf.Sign(_rigidbody.linearVelocity.x)
+                : (Random.value > 0.5f ? 1f : -1f);
 
-       //     float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
-            
-            _rigidbody.angularVelocity = landingWobbleTorque;
+            float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
+            _rigidbody.AddTorque(direction * landingWobbleTorque * wobbleAmount, ForceMode2D.Impulse);
         }
 
         private void ApplyUprightSpring()
         {
-            return;
             float angleRad = Mathf.DeltaAngle(0f, _rigidbody.rotation) * Mathf.Deg2Rad;
             float angularVelocityRad = _rigidbody.angularVelocity * Mathf.Deg2Rad;
             float torque = -uprightSpringStrength * angleRad - uprightSpringDamping * angularVelocityRad;
-
-            float currentAngularVel = _rigidbody.angularVelocity;
-
-            currentAngularVel += (0 - currentAngularVel) * .3f;
-            _rigidbody.angularVelocity = currentAngularVel;
+            _rigidbody.AddTorque(torque);
         }
 
         public void Jump()
