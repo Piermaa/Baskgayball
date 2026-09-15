@@ -31,13 +31,13 @@ namespace BaskgayBall.Input
             touchInputManager.OnPlayerPressEnd -= HandlePressEnd;
         }
 
-        private void HandlePressStart(PlayerSide side)
+        private void HandlePressStart(EPlayerSide side)
         {
             
         //    Debug.Log($"[Input] {side} -> PRESS");
         }
 
-        private void HandlePressEnd(PlayerSide side)
+        private void HandlePressEnd(EPlayerSide side)
         {
       //      Debug.Log($"[Input] {side} -> RELEASE");
         }

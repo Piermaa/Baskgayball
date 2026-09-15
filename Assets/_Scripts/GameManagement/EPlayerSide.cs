@@ -2,9 +2,9 @@ namespace BaskgayBall.Input
 {
     public interface ISided
     {
-        PlayerSide Side { get; }
+        EPlayerSide Side { get; }
     }
-    public enum PlayerSide
+    public enum EPlayerSide
     {
         Player1,
         Player2

@@ -16,11 +16,11 @@ namespace BaskgayBall.Input
         [Tooltip("Permite simular touches con el click del mouse mientras se prueba en el Editor.")]
         [SerializeField] private bool simulateWithMouseInEditor = true;
 
-        public event Action<PlayerSide> OnPlayerPressStart;
+        public event Action<EPlayerSide> OnPlayerPressStart;
 
-        public event Action<PlayerSide> OnPlayerPressEnd;
+        public event Action<EPlayerSide> OnPlayerPressEnd;
 
-        private readonly Dictionary<PlayerSide, int> _activeTouchIdBySide = new Dictionary<PlayerSide, int>(2);
+        private readonly Dictionary<EPlayerSide, int> _activeTouchIdBySide = new Dictionary<EPlayerSide, int>(2);
 
         private const int MouseSimulatedId = int.MinValue;
 
@@ -94,7 +94,7 @@ namespace BaskgayBall.Input
         private void TryRegisterTouch(Vector2 screenPosition, int touchId)
         {
             print($"Tried registering <{touchId}> touch");
-            PlayerSide side = GetSideFromScreenPosition(screenPosition);
+            EPlayerSide side = GetSideFromScreenPosition(screenPosition);
 
             if (_activeTouchIdBySide.ContainsKey(side))
             {
@@ -114,18 +114,18 @@ namespace BaskgayBall.Input
             {
                 if (kvp.Value != touchId) continue;
 
-                PlayerSide side = kvp.Key;
+                EPlayerSide side = kvp.Key;
                 _activeTouchIdBySide.Remove(side);
                 OnPlayerPressEnd?.Invoke(side);
                 return;
             }
         }
 
-        private static PlayerSide GetSideFromScreenPosition(Vector2 screenPosition)
+        private static EPlayerSide GetSideFromScreenPosition(Vector2 screenPosition)
         {
-            return screenPosition.x >= Screen.width * 0.5f ? PlayerSide.Player1 : PlayerSide.Player2;
+            return screenPosition.x >= Screen.width * 0.5f ? EPlayerSide.Player1 : EPlayerSide.Player2;
         }
 
-        public bool IsSideActive(PlayerSide side) => _activeTouchIdBySide.ContainsKey(side);
+        public bool IsSideActive(EPlayerSide side) => _activeTouchIdBySide.ContainsKey(side);
     }
 }

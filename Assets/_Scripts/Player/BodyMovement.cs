@@ -2,6 +2,14 @@ using UnityEngine;
 
 namespace BaskgayBall.Player
 {
+    enum EPlayerBodyRadgollState
+    {
+        JustLanded,
+        Wobblinng,
+        Stable,
+        OnAir
+    }
+
     [RequireComponent(typeof(Rigidbody2D))]
     public class BodyMovement : MonoBehaviour
     {
@@ -21,12 +29,15 @@ namespace BaskgayBall.Player
         private Rigidbody2D _rigidbody;
         private bool _isHolding;
         private bool _wasGrounded;
+        private EPlayerBodyRadgollState ragdollState;
 
         public bool IsGrounded { get; private set; }
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody.centerOfMass = groundCheck.localPosition;
+            ApplyLandingWobble();
         }
 
         private void FixedUpdate()
@@ -36,7 +47,12 @@ namespace BaskgayBall.Player
 
             if (!_wasGrounded && groundedNow)
             {
+                ragdollState = EPlayerBodyRadgollState.JustLanded;
                 ApplyLandingWobble();
+            }
+            else if (!groundedNow)
+            {
+                ragdollState = EPlayerBodyRadgollState.OnAir;    
             }
 
             _wasGrounded = groundedNow;
@@ -52,32 +68,48 @@ namespace BaskgayBall.Player
             }
 
 
-            if (IsGrounded)
+            switch (ragdollState)
             {
-                ApplyUprightSpring();
-            }
-            else
-            {
-                _rigidbody.angularVelocity = 0;
+                case EPlayerBodyRadgollState.JustLanded:
+                case EPlayerBodyRadgollState.Wobblinng:
+                    if (IsGrounded)
+                    {
+                        ApplyUprightSpring();
+                    }
+                    break;
+                case EPlayerBodyRadgollState.Stable:
+                    break;
+                case EPlayerBodyRadgollState.OnAir:
+                _rigidbody.angularVelocity = 0f;
+
+                    break;
             }
         }
 
         private void ApplyLandingWobble()
         {
-            float impactSpeed = Mathf.Abs(_rigidbody.linearVelocity.y);
-            float direction = Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f
-                ? Mathf.Sign(_rigidbody.linearVelocity.x)
-                : (Random.value > 0.5f ? 1f : -1f);
+            print("Applied landing wobble");
+            //float impactSpeed = Mathf.Abs(_rigidbody.linearVelocity.y);
+            //float direction = Mathf.Abs(_rigidbody.linearVelocity.x) > 0.01f
+            //    ? Mathf.Sign(_rigidbody.linearVelocity.x)
+            //    : (Random.value > 0.5f ? 1f : -1f);
 
-            float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
-            _rigidbody.AddTorque(direction * landingWobbleTorque * wobbleAmount, ForceMode2D.Impulse);
+       //     float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
+            
+            _rigidbody.angularVelocity = landingWobbleTorque;
         }
 
         private void ApplyUprightSpring()
         {
-            float angle = Mathf.DeltaAngle(0f, _rigidbody.rotation);
-            float torque = -uprightSpringStrength * angle - uprightSpringDamping * _rigidbody.angularVelocity;
-            _rigidbody.AddTorque(torque);
+            return;
+            float angleRad = Mathf.DeltaAngle(0f, _rigidbody.rotation) * Mathf.Deg2Rad;
+            float angularVelocityRad = _rigidbody.angularVelocity * Mathf.Deg2Rad;
+            float torque = -uprightSpringStrength * angleRad - uprightSpringDamping * angularVelocityRad;
+
+            float currentAngularVel = _rigidbody.angularVelocity;
+
+            currentAngularVel += (0 - currentAngularVel) * .3f;
+            _rigidbody.angularVelocity = currentAngularVel;
         }
 
         public void Jump()

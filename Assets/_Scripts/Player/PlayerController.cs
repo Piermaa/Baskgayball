@@ -6,7 +6,7 @@ namespace BaskgayBall.Player
 {
     public class PlayerController : MonoBehaviour, ISided
     {
-        [SerializeField] private PlayerSide side;
+        [SerializeField] private EPlayerSide side;
         [SerializeField] private ArmController arm;
         [SerializeField] private BallGrabHandler hand;
 
@@ -14,7 +14,7 @@ namespace BaskgayBall.Player
 
         [SerializeField] private BodyMovement bodyMovement;
 
-        public PlayerSide Side => side;
+        public EPlayerSide Side => side;
 
         private void Awake()
         {
@@ -44,7 +44,7 @@ namespace BaskgayBall.Player
             manager.OnPlayerPressEnd -= HandlePressEnd;
         }
 
-        private void HandlePressStart(PlayerSide pressedSide)
+        private void HandlePressStart(EPlayerSide pressedSide)
         {
             if (pressedSide != side) return;
 
@@ -53,7 +53,7 @@ namespace BaskgayBall.Player
             arm.BeginCharge();
         }
 
-        private void HandlePressEnd(PlayerSide pressedSide)
+        private void HandlePressEnd(EPlayerSide pressedSide)
         {
             if (pressedSide != side) return;
 

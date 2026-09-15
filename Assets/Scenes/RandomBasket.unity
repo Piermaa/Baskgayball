@@ -393,7 +393,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
@@ -481,10 +480,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03826267
-    y: 0
-    width: 0.92290014
-    height: 1
+    x: 0
+    y: 0.07476635
+    width: 0.23038156
+    height: 0.22429906
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -520,18 +519,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22240cca76f73c54d8616abf90b8f8d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GyroscopeCameraController
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,6 +1935,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: ballSpawnPosition
+      value: 
+      objectReference: {fileID: 1172852770}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: ballPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: 'ballPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6747792872035990156, guid: 67f9ba1279a2163459ee13535c83aa4f, type: 3}
     - target: {fileID: 5627209593308966795, guid: 41746f27c6e16854983e09e50508c307, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.79118

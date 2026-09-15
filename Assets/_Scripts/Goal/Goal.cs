@@ -6,9 +6,9 @@ namespace BaskgayBall.Goal
 {
     public class Goal : MonoBehaviour, ISided
     {
-        public PlayerSide Side => ownerSide;
+        public EPlayerSide Side => ownerSide;
 
-        [SerializeField] private PlayerSide ownerSide;
+        [SerializeField] private EPlayerSide ownerSide;
         [SerializeField] private bool facesRight;
         private void Awake()
         {

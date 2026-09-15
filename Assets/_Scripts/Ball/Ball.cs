@@ -1,3 +1,4 @@
+using BaskgayBall.Input;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,18 +12,19 @@ namespace BaskgayBall.Ball
     }
 
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Ball : MonoBehaviour
+    public class Ball : MonoBehaviour, ISided
     {
         public BallState State { get; private set; } = BallState.Free;
-
+        public EPlayerSide Side => owningSide;
+        
         private Rigidbody2D _rigidbody;
-
+        private EPlayerSide owningSide;
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        public void OnGrabbed(Transform holder)
+        public void OnGrabbed(Transform holder, EPlayerSide p_ownerSide)
         {
             State = BallState.Held;
             _rigidbody.linearVelocity = Vector2.zero;
@@ -30,6 +32,7 @@ namespace BaskgayBall.Ball
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
             transform.SetParent(holder);
             transform.localPosition = Vector3.zero;
+            owningSide = p_ownerSide;
         }
 
         public void OnThrown(Vector2 velocity)

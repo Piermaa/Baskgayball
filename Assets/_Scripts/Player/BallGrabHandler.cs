@@ -1,16 +1,19 @@
 using BaskgayBall.Ball;
+using BaskgayBall.Input;
 using UnityEngine;
 
 namespace BaskgayBall.Player
 {
-
     [RequireComponent(typeof(Collider2D))]
-    public class BallGrabHandler : MonoBehaviour
+    public class BallGrabHandler : MonoBehaviour, IPrefabSubLogic
     {
+        Transform IPrefabSubLogic.PrefabRoot => prefabRoot;
+        [SerializeField] private Transform prefabRoot = null;
         private Ball.Ball _ballInRange;
         private Ball.Ball _heldBall;
 
         public bool IsHoldingBall => _heldBall != null;
+
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -42,7 +45,7 @@ namespace BaskgayBall.Player
                 _ballInRange.State != BallState.InFlight)) return false;
 
             _heldBall = _ballInRange;
-            _heldBall.OnGrabbed(transform);
+            _heldBall.OnGrabbed(transform, prefabRoot.GetComponent<ISided>().Side);
             return true;
         }
         public bool Throw(Vector2 velocity)
