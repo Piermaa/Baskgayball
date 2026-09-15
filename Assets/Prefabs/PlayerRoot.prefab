@@ -205,8 +205,8 @@ MonoBehaviour:
     m_Bits: 512
   uprightSpringStrength: 800
   uprightSpringDamping: 60
-  landingWobbleTorque: 500
-  landingReferenceSpeed: 12
+  landingWobbleTorque: 600
+  landingReferenceSpeed: 5
 --- !u!1 &3261544351611955228
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 3261544351611955228}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.049, y: -1.213, z: 0}
+  m_LocalPosition: {x: -0.049, y: -1.391, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7f8432e88db7e4db374c551d4ba601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.BallGrabHandler
-  prefabRoot: {fileID: 0}
+  prefabRoot: {fileID: 1267295289375157538}
 --- !u!1 &3590158279897517655
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,8 +315,8 @@ Transform:
   m_GameObject: {fileID: 3590158279897517655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.6777, z: 0}
+  m_LocalScale: {x: 1, y: 1.2556, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8867164181686273230}
@@ -730,7 +730,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.013999939, y: 0.7279999}
+  m_ConnectedAnchor: {x: 0.014, y: 0.728}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
