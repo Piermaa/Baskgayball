@@ -318,6 +318,16 @@ Transform:
   - {fileID: 1353572849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &392103478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4678718332800479133, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
+  m_PrefabInstance: {fileID: 2040256777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &392103479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5967517161011459095, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
+  m_PrefabInstance: {fileID: 2040256777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517949613
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,9 +519,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.07476635
-    width: 0.23038156
-    height: 0.22429906
+    y: 0.013285024
+    width: 1
+    height: 0.973913
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -665,7 +675,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 846225810727631591, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Name
-      value: RightPlayer_2
+      value: Player1_Back
       objectReference: {fileID: 0}
     - target: {fileID: 1267295289375157538, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_LocalScale.x
@@ -723,6 +733,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.7279999
       objectReference: {fileID: 0}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: hoopTarget
+      value: 
+      objectReference: {fileID: 392103479}
     - target: {fileID: 5827692688320691653, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Mass
       value: 15
@@ -845,7 +859,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 846225810727631591, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Name
-      value: LeftPlayer_1
+      value: Player2_Front
       objectReference: {fileID: 0}
     - target: {fileID: 1267295289375157538, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -903,6 +917,10 @@ PrefabInstance:
       propertyPath: startWobbleTorque
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: hoopTarget
+      value: 
+      objectReference: {fileID: 1576674793}
     - target: {fileID: 5827692688320691653, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Mass
       value: 15
@@ -1375,9 +1393,19 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.98, y: -9.27}
+  m_AnchoredPosition: {x: 7.98, y: -13.78}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1576674792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4678718332800479133, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
+  m_PrefabInstance: {fileID: 1837666853854608348}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1576674793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5967517161011459095, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
+  m_PrefabInstance: {fileID: 1837666853854608348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1671306748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1388,7 +1416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 846225810727631591, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Name
-      value: LeftPlayer_2
+      value: Player2_Back
       objectReference: {fileID: 0}
     - target: {fileID: 1267295289375157538, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1442,6 +1470,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.7279999
       objectReference: {fileID: 0}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: hoopTarget
+      value: 
+      objectReference: {fileID: 1576674793}
     - target: {fileID: 5827692688320691653, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Mass
       value: 15
@@ -1667,7 +1699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.52, y: -9.18}
+  m_AnchoredPosition: {x: -8.52, y: -13.69}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1917189010
@@ -1902,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040280325401659912, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: m_Name
-      value: BasketGoal (1)
+      value: BasketGoal_Player1
       objectReference: {fileID: 0}
     - target: {fileID: 8788335284872263960, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: m_LocalScale.x
@@ -1967,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2040280325401659912, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: m_Name
-      value: BasketGoal
+      value: BasketGoal_Player2
       objectReference: {fileID: 0}
     - target: {fileID: 8788335284872263960, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2022,6 +2054,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: player1Hoop
+      value: 
+      objectReference: {fileID: 392103478}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: player2Hoop
+      value: 
+      objectReference: {fileID: 1576674792}
     - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
       propertyPath: ballSpawnPosition
       value: 
@@ -2150,7 +2190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 846225810727631591, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Name
-      value: RightPlayer_1
+      value: Player1_Front
       objectReference: {fileID: 0}
     - target: {fileID: 1267295289375157538, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_LocalScale.x
@@ -2207,6 +2247,18 @@ PrefabInstance:
     - target: {fileID: 2167893255611522049, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 0.7279999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: hoopTarget
+      value: 
+      objectReference: {fileID: 392103479}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: maxThrowForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4295093815631642601, guid: b8c90f33762727647ae01b266262eab9, type: 3}
+      propertyPath: minThrowForce
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5827692688320691653, guid: b8c90f33762727647ae01b266262eab9, type: 3}
       propertyPath: m_Mass

@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 6211399822853591922}
   - component: {fileID: 1875639339461192570}
   m_Layer: 11
-  m_Name: Net
+  m_Name: Hoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

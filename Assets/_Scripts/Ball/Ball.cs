@@ -16,7 +16,7 @@ namespace BaskgayBall.Ball
     {
         public BallState State { get; private set; } = BallState.Free;
         public EPlayerSide Side => owningSide;
-        
+        [SerializeField] private TrailRenderer trailRenderer;
         private Rigidbody2D _rigidbody;
         private EPlayerSide owningSide;
         private void Awake()
@@ -47,6 +47,8 @@ namespace BaskgayBall.Ball
         {
             State = BallState.Free;
         }
+
+
 
         private void OnDrawGizmos()
         {

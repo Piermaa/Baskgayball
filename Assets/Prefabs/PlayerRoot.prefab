@@ -77,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50337f5160cf5924ab7ff28baa62d784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.PlayerController
-  FacesRight: 0
   side: 0
   arm: {fileID: 4295093815631642601}
   hand: {fileID: 3947326505000316495}
@@ -522,12 +521,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Player.ArmController
   restAngle: -5
   maxChargeAngle: 220
-  chargeSpeedDegPerSec: 600
-  minThrowForce: 7
-  maxThrowForce: 20
+  chargeSpeedDegPerSec: 900
+  minThrowForce: 10
+  maxThrowForce: 30
   maxChargeTimeForFullForce: 0.8
   handTransform: {fileID: 6022148985309923636}
-  verticalBoost: 1
+  verticalBoost: 0.7
+  hoopTarget: {fileID: 0}
+  xWeightByDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 2
+      value: 0.4
+      inSlope: 0
+      outSlope: 0.062499996
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 10
+      value: 0.9
+      inSlope: 0.062499996
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  aimRandomnessDegrees: 4
+  aimRandomnessForceMultiplier: 0.08
+  prefabRoot: {fileID: 1267295289375157538}
+  showTrajectoryGizmo: 1
+  trajectorySteps: 30
+  trajectoryTimeStep: 0.05
+  ballGravityScale: 5
+  trajectoryGizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &6399808691724774344
 GameObject:
   m_ObjectHideFlags: 0
