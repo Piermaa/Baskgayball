@@ -16,7 +16,7 @@ public class GoalTrigger : MonoBehaviour
                 {
                     if (goalOwner.Side != ball.Side)
                     {
-                        GameManager.Instance.AddScore(ball.Side);
+                        RoundManager.Instance.EndRound(ERoundEndReason.Goal, ball.Side);
                     }
                 }
             }

@@ -7,6 +7,7 @@ namespace BaskgayBall.Input
     public enum EPlayerSide
     {
         Player1,
-        Player2
+        Player2,
+        None
     }
 }

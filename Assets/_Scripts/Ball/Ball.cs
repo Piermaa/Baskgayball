@@ -48,7 +48,13 @@ namespace BaskgayBall.Ball
             State = BallState.Free;
         }
 
-
+        private void FixedUpdate()
+        {
+            if (RoundManager.Instance.IsBallOutOfBounds(transform))
+            {
+                RoundManager.Instance.EndRound(ERoundEndReason.OOB, owningSide);
+            }
+        }
 
         private void OnDrawGizmos()
         {
