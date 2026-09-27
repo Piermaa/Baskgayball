@@ -1,11 +1,12 @@
 using BaskgayBall.Input;
+using TMPro;
 using UnityEngine;
 
 public class PlayerScoreDisplay : MonoBehaviour, ISided
 {
     public EPlayerSide Side => playerSide;
     [SerializeField] private EPlayerSide playerSide = EPlayerSide.Player1;
-
+    [SerializeField] private TextMeshProUGUI text = null;
     private void OnEnable()
     {
         GlobalEvents.OnGameScoreChange += OnScoreChange;
@@ -20,7 +21,15 @@ public class PlayerScoreDisplay : MonoBehaviour, ISided
     {
         if (scoringPlayer == playerSide)
         {
-            print($"{scoringPlayer} scored. Player1 score {player1Score}, Player2 score: {player2Score}");
+            switch (scoringPlayer)
+            {
+                case EPlayerSide.Player1:
+                    text.text = player1Score.ToString();
+                    break;
+                case EPlayerSide.Player2:
+                    text.text = player2Score.ToString();
+                    break;
+            }
         }
     }
 }

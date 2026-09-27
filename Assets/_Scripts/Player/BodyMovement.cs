@@ -47,7 +47,7 @@ namespace BaskgayBall.Player
         private bool _isHolding;
         private bool _wasGrounded;
         private EPlayerBodyRadgollState ragdollState;
-
+        private float _previousVerticalVelocity;
         public bool IsGrounded { get; private set; }
 
 
@@ -103,6 +103,8 @@ namespace BaskgayBall.Player
 
                     break;
             }
+
+            _previousVerticalVelocity = _rigidbody.linearVelocity.y;
         }
 
         private void ApplyStartingWobble()
@@ -114,7 +116,7 @@ namespace BaskgayBall.Player
 
         private void ApplyLandingWobble()
         {
-            float impactSpeed = Mathf.Abs(_rigidbody.linearVelocity.y);
+            float impactSpeed = Mathf.Abs(_previousVerticalVelocity);
             float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
 
             _rigidbody.AddTorque(landingWobbleTorque * wobbleAmount * GetLeanSign(), ForceMode2D.Impulse);

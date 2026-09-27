@@ -225,8 +225,8 @@ MonoBehaviour:
     m_Bits: 512
   uprightSpringStrength: 800
   uprightSpringDamping: 60
-  landingWobbleTorque: 600
-  landingReferenceSpeed: 1
+  landingWobbleTorque: 400
+  landingReferenceSpeed: 5
   startWobbleTorque: 200
   uprightDeadZoneDegrees: 2
   prefabRoot: {fileID: 1267295289375157538}
@@ -544,26 +544,26 @@ MonoBehaviour:
   maxChargeAngle: 220
   chargeSpeedDegPerSec: 900
   minThrowForce: 5
-  maxThrowForce: 20
-  verticalBoost: 0.35
+  maxThrowForce: 25
+  verticalBoost: 0.3
   xWeightByDistance:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 2
-      value: 0.4
-      inSlope: 0
-      outSlope: 0.062499996
-      tangentMode: 0
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 10
-      value: 0.9
-      inSlope: 0.062499996
-      outSlope: 0
-      tangentMode: 0
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -729,7 +729,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0

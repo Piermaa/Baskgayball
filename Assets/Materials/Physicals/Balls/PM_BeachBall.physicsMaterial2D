@@ -6,9 +6,9 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PM_Ball
+  m_Name: PM_BeachBall
   serializedVersion: 2
   friction: 0.4
-  bounciness: 0.5
+  bounciness: 0.95
   m_FrictionCombine: 1
-  m_BounceCombine: 4
+  m_BounceCombine: 3

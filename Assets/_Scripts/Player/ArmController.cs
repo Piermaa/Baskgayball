@@ -15,7 +15,7 @@ namespace BaskgayBall.Player
         [SerializeField] private float minThrowForce = 4f;
         [SerializeField] private float maxThrowForce = 14f;
         [SerializeField] private float verticalBoost = 0.5f;
-        [SerializeField] private AnimationCurve xWeightByDistance = AnimationCurve.Linear(2f, 0.4f, 10f, 0.9f);
+         private AnimationCurve xWeightByDistance = AnimationCurve.Linear(2f, 0.4f, 10f, 0.9f);
         [SerializeField] private float aimRandomnessDegrees = 4f;
         [SerializeField] private float aimRandomnessForceMultiplier = 0.08f;
 

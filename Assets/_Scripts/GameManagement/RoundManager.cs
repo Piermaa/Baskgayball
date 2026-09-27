@@ -1,5 +1,6 @@
 using BaskgayBall.Core;
 using BaskgayBall.Input;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,8 +32,11 @@ public class RoundManager : MonoBehaviour, IResettable
 
     [Header("Score")]
     [SerializeField] private int scoreToWin = 5;
+    [SerializeField] private float onScoreTimeScale = 0.1f;
+    [SerializeField] private float onScoreResolveDelay = 2;
     public int player1Score = 0;
     public int player2Score = 0;
+    
 
     private void Awake()
     {
@@ -56,7 +60,7 @@ public class RoundManager : MonoBehaviour, IResettable
 
     public bool AddScore(EPlayerSide playerSide)
     {
-        //Handheld.Vibrate();
+        Handheld.Vibrate();
         switch (playerSide)
         {
             case EPlayerSide.Player1:
@@ -73,7 +77,7 @@ public class RoundManager : MonoBehaviour, IResettable
 
         bool player1Won = player1Score >= scoreToWin;
         bool player2Won = player2Score >= scoreToWin;
-
+        print($"Player 1 score: {player1Score}, Player 2 score: {player2Score}");
         return player1Won || player2Won;
     }
 
@@ -93,13 +97,8 @@ public class RoundManager : MonoBehaviour, IResettable
             case ERoundEndReason.None:
                 break;
             case ERoundEndReason.Goal:
-                if (AddScore(playerSide))
-                {
-                    print($"Player {playerSide} won!");
-                }
-                {
-                    ResetState();
-                }
+                bool isGameFinished = AddScore(playerSide);
+                StartCoroutine(ResolveScoreChange(isGameFinished));
                 break;
             case ERoundEndReason.OOB:
                 ResetState();
@@ -107,10 +106,29 @@ public class RoundManager : MonoBehaviour, IResettable
         }
     }
 
+    private IEnumerator ResolveScoreChange(bool gameFinished)
+    {
+        Time.timeScale = onScoreTimeScale;
+        yield return new WaitForSecondsRealtime(onScoreResolveDelay);
+
+        if (gameFinished)
+        {
+            FinishMatch();
+        }
+        {
+            ResetState();
+        }
+
+        Time.timeScale = 1;
+        yield break;
+    }
+
+
     public void StartMatch()
     {
         player1Score = 0;
         player2Score = 0;
+        GlobalEvents.DispatchScoreChange(0, 0, EPlayerSide.None);
         StartRound();
     }
 
@@ -122,5 +140,10 @@ public class RoundManager : MonoBehaviour, IResettable
     {
         GlobalEvents.DispatchResetRound(false);
         StartRound();
+    }
+
+    private void FinishMatch()
+    {
+        GlobalEvents.DispatchFinishMatch();
     }
 }

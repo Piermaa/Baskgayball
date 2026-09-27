@@ -145,5 +145,10 @@ MonoBehaviour:
   ballSpawnPosition: {fileID: 0}
   player1Hoop: {fileID: 0}
   player2Hoop: {fileID: 0}
-  leftBoundary: {fileID: 0}
-  rightBoundary: {fileID: 0}
+  leftBoundary: {fileID: 8158385679553840116}
+  rightBoundary: {fileID: 242443565761190367}
+  scoreToWin: 5
+  onScoreTimeScale: 0.05
+  onScoreResolveDelay: 2
+  player1Score: 0
+  player2Score: 0
