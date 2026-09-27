@@ -226,8 +226,9 @@ MonoBehaviour:
   uprightSpringStrength: 800
   uprightSpringDamping: 60
   landingWobbleTorque: 600
-  landingReferenceSpeed: 5
+  landingReferenceSpeed: 1
   startWobbleTorque: 200
+  uprightDeadZoneDegrees: 2
   prefabRoot: {fileID: 1267295289375157538}
 --- !u!1 &3261544351611955228
 GameObject:
@@ -784,7 +785,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.013999939, y: 0.7279999}
+  m_ConnectedAnchor: {x: 0.014, y: 0.728}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

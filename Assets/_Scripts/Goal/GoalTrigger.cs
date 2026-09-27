@@ -18,24 +18,8 @@ public class GoalTrigger : MonoBehaviour
                     {
                         RoundManager.Instance.EndRound(ERoundEndReason.Goal, ball.Side);
                     }
-                    else
-                    {
-                        print("thrower and hoop were same player");
-                    }
-                }
-                else
-                {
-                    print("ball was going upside??");
                 }
             }
-            else
-            {
-                print("ball didnt have rigidbody");
-            }
-        }
-        else
-        {
-            print("was not ball");
         }
     }
 }

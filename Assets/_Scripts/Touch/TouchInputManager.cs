@@ -93,12 +93,10 @@ namespace BaskgayBall.Input
 #endif
         private void TryRegisterTouch(Vector2 screenPosition, int touchId)
         {
-       //     print($"Tried registering <{touchId}> touch");
             EPlayerSide side = GetSideFromScreenPosition(screenPosition);
 
             if (_activeTouchIdBySide.ContainsKey(side))
             {
-                // Ese lado ya está siendo usado por otro dedo: se ignora el nuevo touch.
                 return;
             }
 
@@ -108,8 +106,6 @@ namespace BaskgayBall.Input
 
         private void ReleaseTouch(int touchId)
         {
-            print($"Tried releasing <{touchId}> touch");
-
             foreach (var kvp in _activeTouchIdBySide)
             {
                 if (kvp.Value != touchId) continue;
