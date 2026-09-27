@@ -1,3 +1,4 @@
+using BaskgayBall.Core;
 using BaskgayBall.Input;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,7 @@ public enum ERoundEndReason
     GameFinish
 }
 
-public class RoundManager : MonoBehaviour
+public class RoundManager : MonoBehaviour, IResettable
 {
     public static RoundManager Instance { get; private set; }
     public GameObject Player1Hoop => player1Hoop;
@@ -32,6 +33,26 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private int scoreToWin = 5;
     public int player1Score = 0;
     public int player2Score = 0;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        StartMatch();
+    }
+
+    private void StartRound()
+    {
+        GlobalEvents.DispatchResetRound(true);
+        Instantiate(BasketHelpers.GetRandomElement(ballPrefabs), ballSpawnPosition);
+    }
 
     public bool AddScore(EPlayerSide playerSide)
     {
@@ -56,20 +77,6 @@ public class RoundManager : MonoBehaviour
         return player1Won || player2Won;
     }
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        Instantiate(BasketHelpers.GetRandomElement(ballPrefabs), ballSpawnPosition);
-    }
-
     public bool IsBallOutOfBounds(Transform ballTrans)
     {
         float ballX = ballTrans.position.x;
@@ -86,9 +93,16 @@ public class RoundManager : MonoBehaviour
             case ERoundEndReason.None:
                 break;
             case ERoundEndReason.Goal:
-                AddScore(playerSide); 
+                if (AddScore(playerSide))
+                {
+                    print($"Player {playerSide} won!");
+                }
+                {
+                    ResetState();
+                }
                 break;
             case ERoundEndReason.OOB:
+                ResetState();
                 break;
         }
     }
@@ -97,7 +111,16 @@ public class RoundManager : MonoBehaviour
     {
         player1Score = 0;
         player2Score = 0;
-
+        StartRound();
     }
-  
+
+    public void ResetState()
+    {
+        ResetRound();
+    }
+    private void ResetRound()
+    {
+        GlobalEvents.DispatchResetRound(false);
+        StartRound();
+    }
 }

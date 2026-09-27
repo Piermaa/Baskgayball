@@ -29,6 +29,16 @@ namespace BaskgayBall.Player
             CacheLogicResettables();
         }
 
+        private void OnEnable()
+        {
+            GlobalEvents.OnFinishRound += ResetState;
+        }
+
+        private void OnDisable()
+        {
+            GlobalEvents.OnFinishRound -= ResetState;
+        }
+
         private void CacheLogicResettables()
         {
             validatedLogicResettables.Clear();
@@ -50,10 +60,10 @@ namespace BaskgayBall.Player
 
         public void ResetState()
         {
-            StopLogicComponents();
             ResetRigidbodies();
             RecreateJoints();
             Physics2D.SyncTransforms();
+            StopLogicComponents();
         }
 
         private void StopLogicComponents()
@@ -72,7 +82,7 @@ namespace BaskgayBall.Player
 
         private static void ResetRigidbody(Rigidbody2D body, Vector2 position, float rotation)
         {
-            if (body == null)
+            if (!body)
             {
                 return;
             }

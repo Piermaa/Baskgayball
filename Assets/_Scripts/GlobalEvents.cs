@@ -17,8 +17,8 @@ public static class GlobalEvents
     /// </summary>
     public static event Action<ERoundEndReason, EPlayerSide> OnEndRound;
 
-    public static event Action OnResetRound;
-
+    public static event Action OnFinishRound;
+    public static event Action OnStartRound;
 
     public static void DispatchScoreChange(int player1Score, int player2Score, EPlayerSide scoringPlayer)
     {
@@ -30,8 +30,15 @@ public static class GlobalEvents
         OnEndRound?.Invoke(roundEndReason, playerSide);
     }
 
-    public static void DispatchResetRound()
+    public static void DispatchResetRound(bool started)
     {
-        OnResetRound?.Invoke();
+        if (started)
+        {
+            OnStartRound?.Invoke();
+        }
+        else
+        {
+            OnFinishRound?.Invoke();
+        }
     }
 }

@@ -2082,7 +2082,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 155878127850416535, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: ownerSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 155878127850416535, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
       propertyPath: facesRight

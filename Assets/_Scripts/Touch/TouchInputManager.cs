@@ -93,7 +93,7 @@ namespace BaskgayBall.Input
 #endif
         private void TryRegisterTouch(Vector2 screenPosition, int touchId)
         {
-            print($"Tried registering <{touchId}> touch");
+       //     print($"Tried registering <{touchId}> touch");
             EPlayerSide side = GetSideFromScreenPosition(screenPosition);
 
             if (_activeTouchIdBySide.ContainsKey(side))

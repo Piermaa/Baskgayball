@@ -1,26 +1,28 @@
+using BaskgayBall.Core;
 using BaskgayBall.Input;
 using UnityEngine;
 
 namespace BaskgayBall.Player
 {
-    public class ArmController : MonoBehaviour, IPrefabSubLogic
+    public class ArmController : MonoBehaviour, IPrefabSubLogic, IResettable
     {
-        [Header("")]
+        [Header("Charge")]
         [SerializeField] private float restAngle = -20f;
         [SerializeField] private float maxChargeAngle = 90f;
         [SerializeField] private float chargeSpeedDegPerSec = 220f;
+
+        [Header("Throw")]
         [SerializeField] private float minThrowForce = 4f;
         [SerializeField] private float maxThrowForce = 14f;
-        [SerializeField] private float maxChargeTimeForFullForce = 0.8f;
-        [SerializeField] private Transform handTransform;
         [SerializeField] private float verticalBoost = 0.5f;
-
-        [SerializeField] private Transform hoopTarget;
         [SerializeField] private AnimationCurve xWeightByDistance = AnimationCurve.Linear(2f, 0.4f, 10f, 0.9f);
         [SerializeField] private float aimRandomnessDegrees = 4f;
         [SerializeField] private float aimRandomnessForceMultiplier = 0.08f;
-        [SerializeField] private Transform prefabRoot;
 
+        [Header("Setup")]
+        [SerializeField] private Transform handTransform;
+        [SerializeField] private Transform hoopTarget;
+        [SerializeField] private Transform prefabRoot;
 
         [Header("Trajectory Gizmo")]
         [SerializeField] private bool showTrajectoryGizmo = true;
@@ -29,17 +31,13 @@ namespace BaskgayBall.Player
         [SerializeField] private float ballGravityScale = 1f;
         [SerializeField] private Color trajectoryGizmoColor = Color.red;
 
-        private float _currentAngle;
-        private float _chargeElapsed;
-        private bool _isCharging;
+        private float _currentAngle = 0;
+        private bool _isCharging = false;
 
         public Transform PrefabRoot => prefabRoot;
 
         private void Start()
         {
-            _currentAngle = restAngle;
-            ApplyRotation();
-
             if (prefabRoot.TryGetComponent<ISided>(out var sided))
             {
                 hoopTarget = sided.Side == EPlayerSide.Player1
@@ -47,14 +45,13 @@ namespace BaskgayBall.Player
                     : RoundManager.Instance.Player1Hoop.transform;
             }
 
-            Debug.DrawLine(transform.position, hoopTarget.position, Color.yellow, 10f);
+            ResetState();
         }
 
         private void Update()
         {
             if (_isCharging)
             {
-                _chargeElapsed += Time.deltaTime;
                 _currentAngle = Mathf.MoveTowards(_currentAngle, maxChargeAngle, chargeSpeedDegPerSec * Time.deltaTime);
             }
             else if (!Mathf.Approximately(_currentAngle, restAngle))
@@ -68,20 +65,27 @@ namespace BaskgayBall.Player
         public void BeginCharge()
         {
             _isCharging = true;
-            _chargeElapsed = 0f;
         }
 
         public Vector2 EndChargeAndGetThrowVelocity()
         {
             _isCharging = false;
 
-            float chargeRatio = Mathf.Clamp01(_chargeElapsed / maxChargeTimeForFullForce);
+            float chargeRatio = GetChargeRatio();
             float baseForce = Mathf.Lerp(minThrowForce, maxThrowForce, chargeRatio);
             float randomizedForce = baseForce * (1f + Random.Range(-aimRandomnessForceMultiplier, aimRandomnessForceMultiplier));
 
             Vector2 direction = ComputeAimDirection(true);
 
             return direction * randomizedForce;
+        }
+
+        // Charge ratio is now driven directly by the arm's current angle relative to its
+        // rest and max-charge angles, so a fully extended arm (maxChargeAngle) always
+        // corresponds 1:1 with maxThrowForce, regardless of how chargeSpeedDegPerSec is tuned.
+        private float GetChargeRatio()
+        {
+            return Mathf.InverseLerp(restAngle, maxChargeAngle, _currentAngle);
         }
 
         private Vector2 ComputeAimDirection(bool applyRandomness)
@@ -121,9 +125,7 @@ namespace BaskgayBall.Player
                 return;
             }
 
-            float chargeRatio = Mathf.Clamp01(_chargeElapsed / maxChargeTimeForFullForce);
-            float previewChargeRatio = _isCharging ? chargeRatio : 1f;
-            float force = Mathf.Lerp(minThrowForce, maxThrowForce, previewChargeRatio);
+            float force = Mathf.Lerp(minThrowForce, maxThrowForce, GetChargeRatio());
             Vector2 velocity = ComputeAimDirection(false) * force;
 
             Vector2 origin = handTransform.position;
@@ -139,6 +141,13 @@ namespace BaskgayBall.Player
                 Gizmos.DrawLine(previousPoint, point);
                 previousPoint = point;
             }
+        }
+
+        public void ResetState()
+        {
+            _currentAngle = restAngle;
+            _isCharging = false;
+            ApplyRotation();
         }
     }
 }

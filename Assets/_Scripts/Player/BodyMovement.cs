@@ -1,3 +1,4 @@
+using BaskgayBall.Core;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace BaskgayBall.Player
     }
 
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BodyMovement : MonoBehaviour, IPrefabSubLogic
+    public class BodyMovement : MonoBehaviour, IPrefabSubLogic, IResettable
     {
         public Transform PrefabRoot => prefabRoot;
 
@@ -51,9 +52,7 @@ namespace BaskgayBall.Player
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.centerOfMass = groundCheck.localPosition;
-            ragdollState = EPlayerBodyRadgollState.Start;
-            IsGrounded = true;
-            ApplyStartingWobble();
+            ResetState();
         }
 
         private void FixedUpdate()
@@ -64,7 +63,9 @@ namespace BaskgayBall.Player
             if (!_wasGrounded && groundedNow)
             {
                 ragdollState = EPlayerBodyRadgollState.JustLanded;
-                ApplyLandingWobble();
+                ApplyStartingWobble();
+
+                //ApplyLandingWobble();
             }
             if (!groundedNow)
             {
@@ -152,11 +153,12 @@ namespace BaskgayBall.Player
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         }
-        //private void OnDrawGizmos()
-        //{
-        //    Handles.Label(
-        //        transform.position + new Vector3(0, 1, 0),
-        //        ragdollState.ToString());
-        //}
+
+        public void ResetState()
+        {
+            ragdollState = EPlayerBodyRadgollState.Start;
+            IsGrounded = true;
+            ApplyStartingWobble();
+        }
     }
 }
