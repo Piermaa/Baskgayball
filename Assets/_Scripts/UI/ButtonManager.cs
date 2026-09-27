@@ -14,11 +14,13 @@ public class ButtonManager : MonoBehaviour
         RefreshButtonStyle();
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         RefreshButtonStyle();
     }
 
+#endif
     protected virtual void RefreshButtonStyle()
     {
         image.sprite = buttonSprite;

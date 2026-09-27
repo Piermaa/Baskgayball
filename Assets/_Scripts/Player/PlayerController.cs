@@ -15,7 +15,7 @@ namespace BaskgayBall.Player
         [SerializeField] private bool facesRight = true;
 
         [SerializeField] private BodyMovement bodyMovement;
-
+        private bool finishedMatch;
         public EPlayerSide Side => side;
 
         private void Awake()
@@ -35,6 +35,12 @@ namespace BaskgayBall.Player
 
             manager.OnPlayerPressStart += HandlePressStart;
             manager.OnPlayerPressEnd += HandlePressEnd;
+            GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
+        }
+
+        private void GlobalEvents_OnFinishMatch()
+        {
+            finishedMatch = true;
         }
 
         private void OnDisable()
@@ -44,11 +50,13 @@ namespace BaskgayBall.Player
 
             manager.OnPlayerPressStart -= HandlePressStart;
             manager.OnPlayerPressEnd -= HandlePressEnd;
+            GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
         }
 
         private void HandlePressStart(EPlayerSide pressedSide)
         {
             if (pressedSide != side) return;
+            if (finishedMatch) return;
 
             bodyMovement.Jump();
             bodyMovement.SetHolding(true);
@@ -58,6 +66,7 @@ namespace BaskgayBall.Player
         private void HandlePressEnd(EPlayerSide pressedSide)
         {
             if (pressedSide != side) return;
+            if (finishedMatch) return;
 
             bodyMovement.SetHolding(false);
             Vector2 throwVelocity = arm.EndChargeAndGetThrowVelocity();

@@ -16,6 +16,7 @@ namespace BaskgayBall.Ball
         public BallState State { get; private set; } = BallState.Free;
         public EPlayerSide Side => owningSide;
 
+        
         [SerializeField] private TrailRenderer trailRenderer;
 
         [Header("Grab Immunity")]

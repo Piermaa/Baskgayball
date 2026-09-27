@@ -118,6 +118,7 @@ namespace BaskgayBall.Player
             transform.localRotation = Quaternion.Euler(0f, 0f, _currentAngle);
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (!showTrajectoryGizmo || !Application.isPlaying || handTransform == null)
@@ -142,6 +143,7 @@ namespace BaskgayBall.Player
                 previousPoint = point;
             }
         }
+#endif
 
         public void ResetState()
         {

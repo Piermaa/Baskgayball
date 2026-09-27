@@ -545,31 +545,7 @@ MonoBehaviour:
   chargeSpeedDegPerSec: 900
   minThrowForce: 5
   maxThrowForce: 25
-  verticalBoost: 0.3
-  xWeightByDistance:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  verticalBoost: 0.25
   aimRandomnessDegrees: 4
   aimRandomnessForceMultiplier: 0.08
   handTransform: {fileID: 6022148985309923636}

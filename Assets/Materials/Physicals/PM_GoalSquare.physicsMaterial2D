@@ -9,6 +9,6 @@ PhysicsMaterial2D:
   m_Name: PM_GoalSquare
   serializedVersion: 2
   friction: 0.4
-  bounciness: 0.3
+  bounciness: 0.1
   m_FrictionCombine: 3
-  m_BounceCombine: 3
+  m_BounceCombine: 0
