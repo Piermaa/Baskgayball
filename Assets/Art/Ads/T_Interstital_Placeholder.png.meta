@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 76236bae75a44fa4d9c7a5b359b0f397
+guid: f4ac5cc9fc3f17c419479531daa09225
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7525372856651088450
-    second: PelotaBasket_0
+      213: 3199863500227474493
+    second: T_Interstital_Placeholder_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PelotaBasket_0
+      name: T_Interstital_Placeholder_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 250
-        height: 250
+        width: 325
+        height: 233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2420e03fdbe7f6860800000000000000
-      internalID: 7525372856651088450
+      spriteID: d34fbcc56e2386c20800000000000000
+      internalID: 3199863500227474493
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PelotaBasket_0: 7525372856651088450
+      T_Interstital_Placeholder_0: 3199863500227474493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
