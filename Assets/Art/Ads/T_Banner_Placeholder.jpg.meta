@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1f0db19dbd108b34bb471b7cdb3fcc22
+guid: 0ee4f570bd8b426469d02d980797feb5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6119369956763102046
-    second: T_Banner_Placeholder_0
+      213: -3939333846523237314
+    second: 92d4009eaf67ed2374fcff3ba98bc1e1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: T_Banner_Placeholder_0
+      name: 92d4009eaf67ed2374fcff3ba98bc1e1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 754
-        height: 235
+        width: 580
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a410f53271a31ba0800000000000000
-      internalID: -6119369956763102046
+      spriteID: e3c2f42fcbca459c0800000000000000
+      internalID: -3939333846523237314
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      T_Banner_Placeholder_0: -6119369956763102046
+      92d4009eaf67ed2374fcff3ba98bc1e1_0: -3939333846523237314
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
