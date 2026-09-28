@@ -106,3 +106,6 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
+# Cache Build
+/Basgayball_BurstDebugInformation_DoNotShip/
+/BasgayballDemo_BackUpThisFolder_ButDontShipItWithYourGame/

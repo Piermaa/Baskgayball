@@ -275,7 +275,7 @@ PlayerSettings:
   AndroidAllowedArchitectures: -13
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Fabrizio/Desktop/Mobile/Keystore/user.keystore
+  AndroidKeystoreName: '{inproject}: Keystore/user.keystore'
   AndroidKeyaliasName: walter el sabio
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidEnableArm64MTE: 0
