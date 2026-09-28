@@ -29,6 +29,7 @@ public class RoundManager : MonoBehaviour, IResettable
     [Header("Boundaries")]
     [SerializeField] private Transform leftBoundary;
     [SerializeField] private Transform rightBoundary;
+    [SerializeField] private float yMinBoundary = -15f;
 
     [Header("Score")]
     [SerializeField] private int scoreToWin = 5;
@@ -86,8 +87,9 @@ public class RoundManager : MonoBehaviour, IResettable
         float ballX = ballTrans.position.x;
         float leftBoundaryX = leftBoundary.position.x;
         float rightBoundaryX = rightBoundary.position.x;
+        bool isBelowYMin = ballTrans.position.y < yMinBoundary;
 
-        return ballX < leftBoundaryX || ballX > rightBoundaryX;
+        return ballX < leftBoundaryX || ballX > rightBoundaryX || isBelowYMin;
     }
 
     public void EndRound(ERoundEndReason endReason, EPlayerSide playerSide)
