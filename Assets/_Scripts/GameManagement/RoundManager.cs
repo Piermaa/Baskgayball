@@ -131,6 +131,7 @@ public class RoundManager : MonoBehaviour, IResettable
         player1Score = 0;
         player2Score = 0;
         GlobalEvents.DispatchScoreChange(0, 0, EPlayerSide.None);
+        GlobalEvents.DispatchStartMatch();
         StartRound();
     }
 
