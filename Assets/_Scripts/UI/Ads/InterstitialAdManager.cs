@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class InterstitialAdManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject adContainer;
+    private void OnEnable()
     {
-        
+        GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
+    }
+    private void GlobalEvents_OnFinishMatch()
+    {
+        adContainer.SetActive(true);
     }
 }

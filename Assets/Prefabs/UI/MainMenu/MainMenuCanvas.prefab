@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2869664963999033686
+--- !u!1 &1528995486664028706
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3477127381575094491}
-  - component: {fileID: 7941526489181748621}
-  - component: {fileID: 3105114769667596127}
+  - component: {fileID: 8698240268612349190}
+  - component: {fileID: 3487192061515875192}
+  - component: {fileID: 8075220853851630220}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3477127381575094491
+--- !u!224 &8698240268612349190
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869664963999033686}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1528995486664028706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2422936386518214286}
+  m_Father: {fileID: 8062663468942653115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -143}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7941526489181748621
+--- !u!222 &3487192061515875192
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869664963999033686}
+  m_GameObject: {fileID: 1528995486664028706}
   m_CullTransparentMesh: 1
---- !u!114 &3105114769667596127
+--- !u!114 &8075220853851630220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869664963999033686}
+  m_GameObject: {fileID: 1528995486664028706}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.95686275}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 6010284505987473148, guid: ee63d2c23ec48cb42a36167c6bb48362, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -298,7 +298,6 @@ GameObject:
   - component: {fileID: 2422936386518214286}
   - component: {fileID: 3889103564216490456}
   - component: {fileID: 5290521627937359830}
-  - component: {fileID: 2880107420365650977}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -318,7 +317,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3477127381575094491}
   - {fileID: 4049536532227477161}
   - {fileID: 1302437792882809156}
   - {fileID: 6287325016268121543}
@@ -351,36 +349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ac0ad5df1cf0e48a7399c1fb9051ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafeArea
---- !u!114 &2880107420365650977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5013331256444544623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 6010284505987473148, guid: ee63d2c23ec48cb42a36167c6bb48362, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6158202526598593573
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -695,6 +663,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8698240268612349190}
   - {fileID: 2422936386518214286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1030,16 +999,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 711346776, guid: a37e8466236089c45b610370218b5353, type: 3}
     - target: {fileID: 3307928889642556656, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
+      propertyPath: m_Color.a
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307928889642556656, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_Color.b
-      value: 0.09789959
+      value: 0.057671774
       objectReference: {fileID: 0}
     - target: {fileID: 3307928889642556656, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_Color.g
-      value: 0.6009275
+      value: 0.32815453
       objectReference: {fileID: 0}
     - target: {fileID: 3307928889642556656, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_Color.r
-      value: 0.8301887
+      value: 0.4528302
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: fontSize
@@ -1047,19 +1020,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: colorTint.a
-      value: 1
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: colorTint.b
-      value: 0.09789959
+      value: 0.057671774
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: colorTint.g
-      value: 0.6009275
+      value: 0.32815453
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: colorTint.r
-      value: 0.8301887
+      value: 0.4528302
       objectReference: {fileID: 0}
     - target: {fileID: 3484843544449207127, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: displayText
@@ -1127,15 +1100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788839865246949014, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0.4056604
       objectReference: {fileID: 0}
     - target: {fileID: 4788839865246949014, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_fontColor.g
-      value: 1
+      value: 0.4056604
       objectReference: {fileID: 0}
     - target: {fileID: 4788839865246949014, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.4056604
       objectReference: {fileID: 0}
     - target: {fileID: 4788839865246949014, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_fontSizeBase
@@ -1147,7 +1120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4788839865246949014, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4284966759
       objectReference: {fileID: 0}
     - target: {fileID: 5706910786267679462, guid: 0c723604f8b99d04aaa248a03fb0e959, type: 3}
       propertyPath: m_Pivot.x

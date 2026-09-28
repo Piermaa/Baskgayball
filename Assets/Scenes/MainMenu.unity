@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImageBG
       objectReference: {fileID: 0}
+    - target: {fileID: 2869664963999033686, guid: 0419319c0815e8241af140e291d80253, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2947466807350769264, guid: 0419319c0815e8241af140e291d80253, type: 3}
       propertyPath: m_Name
       value: Add
@@ -580,6 +584,10 @@ PrefabInstance:
     - target: {fileID: 8554585210106332197, guid: 0419319c0815e8241af140e291d80253, type: 3}
       propertyPath: m_Name
       value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698240268612349190, guid: 0419319c0815e8241af140e291d80253, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.6
       objectReference: {fileID: 0}
     - target: {fileID: 8762150194029595604, guid: 0419319c0815e8241af140e291d80253, type: 3}
       propertyPath: m_Name
