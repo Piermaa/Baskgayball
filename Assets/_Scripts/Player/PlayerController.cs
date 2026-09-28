@@ -36,11 +36,17 @@ namespace BaskgayBall.Player
             manager.OnPlayerPressStart += HandlePressStart;
             manager.OnPlayerPressEnd += HandlePressEnd;
             GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
+            GlobalEvents.OnStartMatch += GlobalEvents_OnStartMatch;
         }
 
         private void GlobalEvents_OnFinishMatch()
         {
             finishedMatch = true;
+        }
+
+        private void GlobalEvents_OnStartMatch()
+        {
+            finishedMatch = false;  
         }
 
         private void OnDisable()
@@ -51,6 +57,7 @@ namespace BaskgayBall.Player
             manager.OnPlayerPressStart -= HandlePressStart;
             manager.OnPlayerPressEnd -= HandlePressEnd;
             GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
+            GlobalEvents.OnStartMatch -= GlobalEvents_OnStartMatch;
         }
 
         private void HandlePressStart(EPlayerSide pressedSide)

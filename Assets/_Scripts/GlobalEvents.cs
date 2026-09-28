@@ -20,6 +20,7 @@ public static class GlobalEvents
     public static event Action OnFinishRound;
     public static event Action OnStartRound;
     public static event Action OnFinishMatch;
+    public static event Action OnStartMatch;
 
     public static void DispatchScoreChange(int player1Score, int player2Score, EPlayerSide scoringPlayer)
     {
@@ -46,5 +47,10 @@ public static class GlobalEvents
     public static void DispatchFinishMatch()
     {
         OnFinishMatch?.Invoke();
+    }
+
+    public static void DispatchStartMatch()
+    {
+        OnStartMatch?.Invoke();
     }
 }
