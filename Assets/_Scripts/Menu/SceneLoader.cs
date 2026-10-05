@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string gameScene = "RandomBasket";
-    public string menuScene = "MainMenu";
+    private string gameScene = "Gameplay";
+    private string menuScene = "MainMenu";
+
     public void StartGame()
     {
         LoadScene(gameScene);
