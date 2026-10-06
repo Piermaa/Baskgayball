@@ -109,3 +109,4 @@ InitTestScene*.unity*
 # Cache Build
 /Basgayball_BurstDebugInformation_DoNotShip/
 /BasgayballDemo_BackUpThisFolder_ButDontShipItWithYourGame/
+Packages/com.ptc.vuforia.engine-11.4.4.tgz
