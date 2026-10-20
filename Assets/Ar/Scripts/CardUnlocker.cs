@@ -26,7 +26,6 @@ public class CardUnlocker : MonoBehaviour
         if (mObserverBehaviour)
         {
             mObserverBehaviour.OnTargetStatusChanged -= OnTargetStatusChanged;
-            VuforiaDebugger.Instance.AddPrint("Destroyed", Color.yellow);
         }
     }
 
@@ -49,7 +48,6 @@ public class CardUnlocker : MonoBehaviour
         {
             mCharacter.SetActive(false);
             VuforiaDebugger.Instance.AddPrint("Lost target", Color.white);
-
         }
     }
 
