@@ -17,7 +17,7 @@ public class CardCollection : MonoBehaviour
 {
     public Vuforia.Image image;
     [SerializeField] private TextMeshProUGUI m_TextMeshPro;
-    private HashSet<string> unlockedCards;
+    private HashSet<string> unlockedCards = new();
 
     private void Start()
     {
@@ -35,9 +35,17 @@ public class CardCollection : MonoBehaviour
 
     private void ArEvents_OnCardUnlock(string obj)
     {
-        if (unlockedCards.Add(obj))
+        VuforiaDebugger.Instance.AddPrint("Collection received unlock try: " + obj, Color.orange);
+        
+        if (!unlockedCards.Contains(obj))
         {
-            m_TextMeshPro.text = unlockedCards.Count.ToString();
+            VuforiaDebugger.Instance.AddPrint("Unlocked: " + obj, Color.green);
+            unlockedCards.Add(obj);
+            m_TextMeshPro.text = "Unlocked cards: " + unlockedCards.Count.ToString();
+        }
+        else
+        {
+            VuforiaDebugger.Instance.AddPrint("Not unlocked: " + obj, Color.red);
         }
     }
 

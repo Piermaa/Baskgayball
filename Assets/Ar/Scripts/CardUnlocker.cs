@@ -34,8 +34,7 @@ public class CardUnlocker : MonoBehaviour
     {
         string imageName = mObserverBehaviour.TargetName;
 
-        VuforiaDebugger.Instance.AddPrint("Image detected", Color.white);
-        Debug.Log("Imagen detectada: " + imageName);
+        VuforiaDebugger.Instance.AddPrint("Recognized card: " + imageName, Color.white);
         mCharacter.SetActive(true);
         DispararEventoGlobal(imageName);
     }
@@ -56,9 +55,6 @@ public class CardUnlocker : MonoBehaviour
 
     private void DispararEventoGlobal(string imageName)
     {
-
-        VuforiaDebugger.Instance.AddPrint("Unlocked card" + imageName, Color.green);
-
         ArEvents.InvokeCardUnlock(imageName);
     }
 }

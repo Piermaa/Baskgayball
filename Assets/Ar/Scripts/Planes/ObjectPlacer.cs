@@ -15,6 +15,7 @@ public class ObjectPlacer : MonoBehaviour
 
     private void OnEnable()
     {
+        VuforiaDebugger.Instance.AddPrint("Not found observerBehavior", Color.red);
         GetComponent<PlaneFinderBehaviour>().OnInteractiveHitTest.AddListener(PlaceObject);
     }
 
