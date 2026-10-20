@@ -119,143 +119,239 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &147567467
+--- !u!1 &56857459 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1143031848}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 147567468}
-  - component: {fileID: 147567470}
-  - component: {fileID: 147567469}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &147567468
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!114 &56857463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1143031848}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147567467}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1237230105}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 44.03}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0}
---- !u!114 &147567469
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &56857467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147567467}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &147567469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+  m_PrefabInstance: {fileID: 1126096323288150532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &147567470
-CanvasRenderer:
+--- !u!1 &216461411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1982105391954745459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &216461414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1982105391954745459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &216461416
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147567467}
-  m_CullTransparentMesh: 1
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &458927475
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +517,117 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &626657301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1152847332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &626657305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1152847332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &626657309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1001 &742990475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,6 +636,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mHeight
+      value: 0.083478
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 2146787520}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mAspectRatio
+      value: 1.3913
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mTrackableName
+      value: mankey
+      objectReference: {fileID: 0}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -485,10 +708,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146787520}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1001 &1143031848
 PrefabInstance:
@@ -498,6 +725,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mTrackableName
       value: armarouge
@@ -509,6 +740,10 @@ PrefabInstance:
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mMeshFilter
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mTargetName
+      value: armarouge
       objectReference: {fileID: 0}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mMeshRenderer
@@ -558,10 +793,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857467}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857468}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857472}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857473}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857474}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1001 &1152847332
 PrefabInstance:
@@ -643,113 +894,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657309}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657310}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657314}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657315}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657316}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
---- !u!1 &1237230101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1237230105}
-  - component: {fileID: 1237230104}
-  - component: {fileID: 1237230103}
-  - component: {fileID: 1237230102}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1237230102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237230101}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1237230103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237230101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1237230104
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237230101}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &1237230105
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1237230101}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 147567468}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1501702698
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +926,7 @@ GameObject:
   - component: {fileID: 1501702701}
   - component: {fileID: 1501702700}
   - component: {fileID: 1501702699}
+  - component: {fileID: 1501702702}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -842,6 +1008,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501702702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501702698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1 &1562715072
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1205,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mTargetName
+      value: charcadet
+      objectReference: {fileID: 0}
+    - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mMeshRenderer
       value: 
       objectReference: {fileID: 0}
@@ -1042,11 +1256,138 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278704}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278705}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278709}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278710}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278711}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+--- !u!1 &1958278699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1860498866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1958278702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 1860498866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &1958278704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1001 &2083014329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,11 +1464,290 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448224}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448225}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448229}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448230}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448231}
+  m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+--- !u!1 &2125448216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 2083014329}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2125448220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 2083014329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &2125448224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!1 &2146787512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 742990475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2146787516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_PrefabInstance: {fileID: 742990475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146787512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetBehaviour
+--- !u!114 &2146787520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146787512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2146787516}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: mankey
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2146787516}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!1001 &1126096323288150532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_text
+      value: No cards unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 970734932927927855, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264405500806497804, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_Name
+      value: Progress
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759510195459039133, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_text
+      value: Go to Planes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
 --- !u!1001 &1982105391954745459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1192,10 +1812,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461416}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461417}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461421}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461422}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461423}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1210,5 +1846,5 @@ SceneRoots:
   - {fileID: 1143031848}
   - {fileID: 1860498866}
   - {fileID: 1775334406}
-  - {fileID: 1237230105}
+  - {fileID: 1126096323288150532}
   - {fileID: 1562715075}

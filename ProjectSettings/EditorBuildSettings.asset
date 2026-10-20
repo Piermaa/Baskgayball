@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Vuforiua.unity
+    path: Assets/Ar/Vuforia_Cards.unity
     guid: 01292d3c81c14ad4aba7686ff4a7f42c
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: ee26e98a5524bca408f32b7bf5de885d
-  - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Ar/Vuforia_Planes.unity
+    guid: 60da3bde5a7eb484e9dcb4d41811a16b
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

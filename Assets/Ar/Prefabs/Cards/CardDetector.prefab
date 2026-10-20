@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: VuforiaScripts::DefaultObserverEventHandler
-  StatusFilter: 1
+  StatusFilter: 0
   UsePoseSmoothing: 0
   AnimationCurve:
     serializedVersion: 2
@@ -250,4 +250,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63ca0796962bde4a979cd5623ae25f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardUnlocker
-  mCharacter: {fileID: 0}
+  mCharacter: {fileID: 5238825983826901371}
