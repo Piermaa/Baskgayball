@@ -249,6 +249,63 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 56857463}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &56857476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &56857481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56857459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 56857463}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: armarouge
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 56857463}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!114 &147567469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
@@ -372,6 +429,63 @@ MonoBehaviour:
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
 --- !u!114 &216461424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216461411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 216461414}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: primeape
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 216461414}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &216461430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -685,6 +799,63 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 626657305}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &626657318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &626657323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626657301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 626657305}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: fuecoco
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 626657305}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1001 &742990475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +880,10 @@ PrefabInstance:
       propertyPath: mTrackableName
       value: mankey
       objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d2cec6c280652794787730cac5d9cf40, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -790,6 +965,10 @@ PrefabInstance:
       propertyPath: mTrackableName
       value: armarouge
       objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f2af331b4476f254a9da9568fe17bffa, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -873,6 +1052,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 56857475}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857477}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857476}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 56857481}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1001 &1152847332
 PrefabInstance:
@@ -891,6 +1079,10 @@ PrefabInstance:
       value: 0.083565
       objectReference: {fileID: 0}
     - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mAspectRatio
       value: 1.39275
       objectReference: {fileID: 0}
@@ -898,6 +1090,10 @@ PrefabInstance:
       propertyPath: mTrackableName
       value: fuecoco
       objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7751c9d32ff880d499a595c17dc8463e, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -977,6 +1173,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 626657317}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657319}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657318}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626657323}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1 &1501702698
 GameObject:
@@ -1252,6 +1457,10 @@ PrefabInstance:
       value: 0.083799
       objectReference: {fileID: 0}
     - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mAspectRatio
       value: 1.39665
       objectReference: {fileID: 0}
@@ -1259,6 +1468,10 @@ PrefabInstance:
       propertyPath: mTrackableName
       value: charcadet
       objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cf18524c0fb25c14aa80246e99b36950, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -1342,6 +1555,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1958278712}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278713}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1958278717}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1 &1958278699 stripped
 GameObject:
@@ -1473,6 +1692,44 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1958278702}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1958278717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958278699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 1958278702}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: charcadet
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 1958278702}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1001 &2083014329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,6 +1743,10 @@ PrefabInstance:
       value: 0.083799
       objectReference: {fileID: 0}
     - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mAspectRatio
       value: 1.39665
       objectReference: {fileID: 0}
@@ -1493,6 +1754,10 @@ PrefabInstance:
       propertyPath: mTrackableName
       value: lucario
       objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 43a3b215995e866428797b520e697a47, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -1572,6 +1837,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2125448232}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448234}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448233}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2125448238}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1 &2125448216 stripped
 GameObject:
@@ -1703,6 +1977,63 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 2125448220}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &2125448238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Vuforia.Unity.Engine.dll::Vuforia.ImageTargetPreview
+  mObserverBehaviour: {fileID: 2125448220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: lucario
+  mDatasetName: Vuforia/MobileAR.xml
+  mCastedBehaviour: {fileID: 2125448220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &2146787512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
@@ -1746,6 +2077,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 344775504808150802, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 646668776565307310, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
       propertyPath: m_text
       value: No cards unlocked
@@ -1762,9 +2097,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1385158690283539403, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4264405500806497804, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
       propertyPath: m_Name
       value: Progress
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635004539595629040, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635004539595629040, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635004539595629040, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635004539595629040, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62
       objectReference: {fileID: 0}
     - target: {fileID: 5369629006349184231, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
       propertyPath: m_Pivot.x
@@ -1846,6 +2201,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7706090243078474684, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706090243078474684, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706090243078474684, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706090243078474684, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -62
+      objectReference: {fileID: 0}
     - target: {fileID: 8435829631054963494, guid: c6310e1eaab9ad64ca4e912abaa450c6, type: 3}
       propertyPath: m_text
       value: Cards Exercise
@@ -1867,6 +2238,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2528016615177446416, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: mPreview
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751714734169881059, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d9a5422efbc336043ad1e41181ed4824, type: 2}
     - target: {fileID: 5366658331507659114, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -1946,6 +2325,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 216461424}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461426}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461425}
+    - targetCorrespondingSourceObject: {fileID: 5934203608682255760, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216461430}
   m_SourcePrefab: {fileID: 100100000, guid: db9d82a2af99e9345aa8e276211bfd06, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
