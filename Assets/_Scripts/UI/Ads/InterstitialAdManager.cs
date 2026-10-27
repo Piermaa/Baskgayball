@@ -1,11 +1,9 @@
 using GoogleMobileAds.Api;
 using UnityEngine;
-using GoogleMobileAds.Api;
 
 public class InterstitialAdManager : MonoBehaviour
 {
-    [SerializeField] private GameObject adContainer;
-    private InterstitialAd intersitialView;
+    private InterstitialAd interstitialAd;
     private void OnEnable()
     {
         GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
@@ -15,49 +13,93 @@ public class InterstitialAdManager : MonoBehaviour
     {
         GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
     }
+
     private void GlobalEvents_OnFinishMatch()
     {
-        adContainer.SetActive(true);
+        LoadInterstitial();
     }
 
-    //public void LoadBanner()
-    //{
-    //    DestroyBanner();
+    private string GetInterstitialAdUnitId()
+    {
+#if UNITY_ANDROID
+        return "ca-app-pub-3940256099942544/1033173712";
+#elif UNITY_IOS
+        return "ca-app-pub-3940256099942544/4411468910";
+#else
+        return "unused";
+#endif
+    }
 
-    //    intersitialView = new InterstitialAd();
-        
-    //    intersitialView.OnBannerAdLoaded += ShowBanner;
-    //    AdRequest request = new AdRequest();
+    public void LoadInterstitial()
+    {
+        if (interstitialAd != null)
+        {
+            interstitialAd.Destroy();
+            interstitialAd = null;
+        }
 
-    //    intersitialView.LoadAd(request);
-    //}
+        AdRequest request = new AdRequest();
 
-    //public void DestroyBanner()
-    //{
-    //    if (intersitialView == null)
-    //    {
-    //        return;
-    //    }
-    //    intersitialView.OnBannerAdLoaded -= ShowBanner;
-    //    intersitialView.Destroy();
-    //    intersitialView = null;
-    //}
+        InterstitialAd.Load(
+            GetInterstitialAdUnitId(),
+            request,
+            (InterstitialAd ad, LoadAdError error) =>
+            {
+                if (error != null)
+                {
+                    Debug.LogError(
+                        $"Interstitial did not load. Error: {error}"
+                    );
 
-    //private string GetBannerAdUnitId()
-    //{
-    //    return "ca-app-pub-3940256099942544/6300978111";
-    //    return "unused";
-    //}
+                    return;
+                }
 
-    //public void ShowBanner()
-    //{
-    //    intersitialView.Show();
-    //}
+                interstitialAd = ad;
 
-    //private void OnBannerLoaded()
-    //{
-    //    Debug.Log("Banner ad loaded successfully.");
-    //    ShowBanner();
-    //}
+                RegisterInterstitialEvents();
+
+                ShowInterstitial();
+            }
+        );
+    }
+
+    public void ShowInterstitial()
+    {
+        if (
+            interstitialAd == null ||
+            !interstitialAd.CanShowAd()
+        )
+        {
+            Debug.Log("Interstitial unavailable");
+            return;
+        }
+
+        interstitialAd.Show();
+    }
+
+    private void RegisterInterstitialEvents()
+    {
+        interstitialAd.OnAdFullScreenContentClosed += () =>
+        {
+            interstitialAd.Destroy();
+            interstitialAd = null;
+        };
+
+        interstitialAd.OnAdFullScreenContentFailed += error =>
+        {
+            Debug.Log(
+                $"Error showing interstitial: {error}"
+            );
+        };
+    }
+
+    private void OnDestroy()
+    {
+        if (interstitialAd != null)
+        {
+            interstitialAd.Destroy();
+            interstitialAd = null;
+        }
+    }
 }
 

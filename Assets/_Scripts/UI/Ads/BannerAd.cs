@@ -16,7 +16,7 @@ public class BannerAd : MonoBehaviour
 
         bannerView = new BannerView(
             GetBannerAdUnitId(),
-            AdSize.IABBanner,
+            AdSize.LargeBanner,
             AdPosition.Bottom
         );
 
@@ -36,11 +36,15 @@ public class BannerAd : MonoBehaviour
         bannerView.Destroy();
         bannerView = null;
     }
-
     private string GetBannerAdUnitId()
     {
+#if UNITY_ANDROID
         return "ca-app-pub-3940256099942544/6300978111";
+#elif UNITY_IOS
+        return "ca-app-pub-3940256099942544/2934735716";
+#else
         return "unused";
+#endif
     }
 
     public void ShowBanner()
