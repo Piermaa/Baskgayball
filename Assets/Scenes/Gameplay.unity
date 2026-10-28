@@ -517,9 +517,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.012820513
     width: 1
-    height: 1
+    height: 0.9738461
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -1964,6 +1964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995947779}
+  - component: {fileID: 1995947780}
   m_Layer: 0
   m_Name: PowerUpPositions
   m_TagString: Untagged
@@ -1989,6 +1990,21 @@ Transform:
   - {fileID: 684072007}
   m_Father: {fileID: 1320351538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995947780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995947778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df039012695631d46a90fec31dfa54fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpsManager
+  powerUpSpawnPositions: []
+  initialPowerUpsDelay: 1
+  powerUpsDelayRange: {x: 0, y: 0}
 --- !u!1001 &2040256777
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,8 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0144c06efce7dea4ebd3c2b3b9a8ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMAnager
-  gameScene: 
-  menuScene: 
-  scoreToWin: 5
-  player1Score: 0
-  player2Score: 0
+  cosmeticsMng:
+    skinDataBase: {fileID: 11400000, guid: b7a97f415b3d07c4e99c3ec2c68920da, type: 2}

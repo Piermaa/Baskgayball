@@ -4,9 +4,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private GameModeManager gameModeMng;
-    private CosmeticsManager cosmeticsMng;
-    private CoinsManager coinsMng;
+    private GameModeManager gameModeMng = new();
+    [SerializeField] private CosmeticsManager cosmeticsMng = new();
+    private CoinsManager coinsMng = new();
 
     public GameModeManager GameModeMng => gameModeMng;
     public CoinsManager CoinsMng => coinsMng;
@@ -45,9 +45,10 @@ public class GameModeManager
         isChaosMode = newChaosMode;
     }
 }
-
+[System.Serializable]
 public class CosmeticsManager
 {
+    public SkinDataBase skinDataBase;
     private int skinSelectedPlayer1;
     private int skinSelectedPlayer2;
 
