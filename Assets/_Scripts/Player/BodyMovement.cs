@@ -188,6 +188,7 @@ namespace BaskgayBall.Player
             Vector2 direction = transform.up;
             if (_modifiers != null && _modifiers.IsJumpDirectionInverted)
             {
+                print("Direction inverted;");
                 direction = new Vector2(-direction.x, direction.y);
             }
 

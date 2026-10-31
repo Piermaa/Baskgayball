@@ -15,5 +15,5 @@ MonoBehaviour:
   polarity: 1
   target: 0
   effect: {fileID: 11400000, guid: f45966d2b7093ca4cab41c46f99e0d80, type: 2}
-  duration: 10
+  duration: 5
   icon: {fileID: 21300000, guid: 8e5c267b8bf3d492091ecd8ab183f2bc, type: 3}
