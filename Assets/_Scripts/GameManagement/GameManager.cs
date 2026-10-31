@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    private GameModeManager gameModeMng = new();
+    [SerializeField] private GameModeManager gameModeMng = new();
     [SerializeField] private CosmeticsManager cosmeticsMng = new();
     private CoinsManager coinsMng = new();
 
@@ -28,17 +28,14 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        gameModeMng = new GameModeManager();
-        coinsMng = new CoinsManager();
-        cosmeticsMng = new CosmeticsManager();
     }
 }
 
-
+[System.Serializable]
 public class GameModeManager
 {
     public bool IsChaosMode { get { return isChaosMode; } }
-    private bool isChaosMode;
+    [SerializeField]private bool isChaosMode;
 
     public void SetMode(bool newChaosMode)
     {
@@ -49,10 +46,15 @@ public class GameModeManager
 public class CosmeticsManager
 {
     public SkinDataBase skinDataBase;
-    private int skinSelectedPlayer1;
-    private int skinSelectedPlayer2;
+    [SerializeField] private int skinSelectedPlayer1 = 0;
+    [SerializeField] private int skinSelectedPlayer2 = 0;
 
-    public int GetPlayerSelectedSkin(EPlayerSide player)
+    public SkinData GetPlayerSkinData(EPlayerSide playerSide)
+    {
+        return skinDataBase.skins[GetPlayerSelectedSkinIndex(playerSide)];
+    }
+
+    public int GetPlayerSelectedSkinIndex(EPlayerSide player)
     {
         switch (player)
         {

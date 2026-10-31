@@ -1,4 +1,5 @@
 using BaskgayBall.Core;
+using BaskgayBall.PowerUps;
 using UnityEngine;
 
 namespace BaskgayBall.Player
@@ -50,23 +51,49 @@ namespace BaskgayBall.Player
         private float _previousVerticalVelocity;
         public bool IsGrounded { get; private set; }
 
+        private PlayerModifiers _modifiers;
+        private float _baseGravityScale;
+        private float _baseLinearDamping;
+        private float _baseAngularDamping;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.centerOfMass = groundCheck.localPosition;
+
+            _baseGravityScale = _rigidbody.gravityScale;
+            _baseLinearDamping = _rigidbody.linearDamping;
+            _baseAngularDamping = _rigidbody.angularDamping;
+            prefabRoot.TryGetComponent(out _modifiers);
+
             ResetState();
+        }
+
+        private float GetTimeScale()
+        {
+            return _modifiers != null ? _modifiers.TimeScale : 1f;
+        }
+
+        private void ApplyTimeScaleToBody(float timeScale)
+        {
+            _rigidbody.gravityScale = _baseGravityScale * timeScale * timeScale;
+            _rigidbody.linearDamping = _baseLinearDamping * timeScale;
+            _rigidbody.angularDamping = _baseAngularDamping * timeScale;
         }
 
         private void FixedUpdate()
         {
+            float timeScale = GetTimeScale();
+            float accelerationScale = timeScale * timeScale;
+            ApplyTimeScaleToBody(timeScale);
+
             bool groundedNow = groundCheck != null &&
                 Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
             if (!_wasGrounded && groundedNow)
             {
                 ragdollState = EPlayerBodyRadgollState.JustLanded;
-                ApplyLandingWobble();
+                ApplyLandingWobble(timeScale);
             }
             if (!groundedNow)
             {
@@ -78,13 +105,12 @@ namespace BaskgayBall.Player
 
             if (_rigidbody.linearVelocity.y < 0f)
             {
-                _rigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1f) * Time.fixedDeltaTime;
+                _rigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1f) * accelerationScale * Time.fixedDeltaTime;
             }
             else if (_rigidbody.linearVelocity.y > 0f && !_isHolding)
             {
-                _rigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
+                _rigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1f) * accelerationScale * Time.fixedDeltaTime;
             }
-
 
             switch (ragdollState)
             {
@@ -93,33 +119,33 @@ namespace BaskgayBall.Player
                 case EPlayerBodyRadgollState.Start:
                     if (IsGrounded)
                     {
-                        ApplyUprightSpring();
+                        ApplyUprightSpring(timeScale);
                     }
                     break;
                 case EPlayerBodyRadgollState.Stable:
                     break;
                 case EPlayerBodyRadgollState.OnAir:
                     _rigidbody.angularVelocity = 0f;
-
                     break;
             }
 
             _previousVerticalVelocity = _rigidbody.linearVelocity.y;
         }
 
+
         private void ApplyStartingWobble()
         {
-            float wobbleToApply = startWobbleTorque * GetLeanSign();
+            float wobbleToApply = startWobbleTorque * GetLeanSign() * GetTimeScale();
             wobbleToApply *= Random.Range(.5f, 1.5f);
             _rigidbody.AddTorque(wobbleToApply, ForceMode2D.Impulse);
         }
 
-        private void ApplyLandingWobble()
+        private void ApplyLandingWobble(float timeScale)
         {
             float impactSpeed = Mathf.Abs(_previousVerticalVelocity);
-            float wobbleAmount = Mathf.Clamp01(impactSpeed / landingReferenceSpeed);
+            float wobbleAmount = Mathf.Clamp01(impactSpeed / (landingReferenceSpeed * timeScale));
 
-            _rigidbody.AddTorque(landingWobbleTorque * wobbleAmount * GetLeanSign(), ForceMode2D.Impulse);
+            _rigidbody.AddTorque(landingWobbleTorque * wobbleAmount * GetLeanSign() * timeScale, ForceMode2D.Impulse);
         }
 
         // Picks which way a wobble impulse should push. It reinforces whatever lean the body
@@ -146,20 +172,29 @@ namespace BaskgayBall.Player
             return facesRight ? -1f : 1f;
         }
 
-        private void ApplyUprightSpring()
+        private void ApplyUprightSpring(float timeScale)
         {
             float angleRad = Mathf.DeltaAngle(0f, _rigidbody.rotation) * Mathf.Deg2Rad;
             float angularVelocityRad = _rigidbody.angularVelocity * Mathf.Deg2Rad;
-            float torque = -uprightSpringStrength * angleRad - uprightSpringDamping * angularVelocityRad;
+            float torque = -uprightSpringStrength * timeScale * timeScale * angleRad
+                           - uprightSpringDamping * timeScale * angularVelocityRad;
             _rigidbody.AddTorque(torque);
         }
-
         public void Jump()
         {
             if (!IsGrounded) return;
+            if (_modifiers != null && _modifiers.IsJumpBlocked) return;
+
+            Vector2 direction = transform.up;
+            if (_modifiers != null && _modifiers.IsJumpDirectionInverted)
+            {
+                direction = new Vector2(-direction.x, direction.y);
+            }
+
+            float multiplier = _modifiers != null ? _modifiers.JumpForceMultiplier * _modifiers.TimeScale : 1f;
 
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, 0f);
-            _rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            _rigidbody.AddForce(direction * jumpForce * multiplier, ForceMode2D.Impulse);
         }
 
         public void SetHolding(bool isHolding)

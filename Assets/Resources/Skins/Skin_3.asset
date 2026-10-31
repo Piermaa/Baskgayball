@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
   cost: 0
   displayName: Diego
-  headSprite: {fileID: 0}
-  bodySprite: {fileID: 0}
-  handSprite: {fileID: 0}
+  fillSprite: {fileID: -900344255068914368, guid: b9f732ec6e100854396afe99e776284b, type: 3}
+  headSprite: {fileID: -397321844, guid: 6148b57888345f94b874a460ce13ff91, type: 3}
+  bodySprite: {fileID: 21300000, guid: de2e159fb5acdac49974a0e304df0012, type: 3}
+  handSprite: {fileID: 5681030443537498346, guid: 28d7eb4042740bc4bbd5471c78adc9a8, type: 3}

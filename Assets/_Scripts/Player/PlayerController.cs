@@ -1,9 +1,11 @@
 using BaskgayBall.Input;
 using BaskgayBall.Player;
+using BaskgayBall.PowerUps;
 using UnityEngine;
 
 namespace BaskgayBall.Player
 {
+    [RequireComponent(typeof(PlayerModifiers))]
     public class PlayerController : MonoBehaviour, ISided
     {
         public bool FacesRight => facesRight;
@@ -15,13 +17,17 @@ namespace BaskgayBall.Player
         [SerializeField] private bool facesRight = true;
 
         [SerializeField] private BodyMovement bodyMovement;
+        private PlayerModifiers _modifiers;
         private bool finishedMatch;
         public EPlayerSide Side => side;
 
+
         private void Awake()
         {
+            _modifiers = GetComponent<PlayerModifiers>();
             BasketHelpers.ApplyFacing(transform, facesRight);
         }
+
 
         private void OnDrawGizmosSelected()
         {
@@ -64,6 +70,7 @@ namespace BaskgayBall.Player
         {
             if (pressedSide != side) return;
             if (finishedMatch) return;
+            if (_modifiers.IsFrozen) return;
 
             bodyMovement.Jump();
             bodyMovement.SetHolding(true);
@@ -77,6 +84,8 @@ namespace BaskgayBall.Player
 
             bodyMovement.SetHolding(false);
             Vector2 throwVelocity = arm.EndChargeAndGetThrowVelocity();
+
+            if (_modifiers.IsFrozen) return;
 
             if (hand.IsHoldingBall)
             {

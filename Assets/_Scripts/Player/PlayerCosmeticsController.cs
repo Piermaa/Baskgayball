@@ -1,16 +1,23 @@
+using BaskgayBall.Input;
 using UnityEngine;
 
 public class PlayerCosmeticsController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer armRenderer;
+    [SerializeField] private SpriteRenderer headRenderer;
+
+    private void Start()
     {
-        
+        ISided sided = GetComponent<ISided>();
+        SkinData skin = GameManager.Instance.CosmeticsMng.GetPlayerSkinData(sided.Side);
+        SetSkin(skin);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetSkin(SkinData skinData)
     {
-        
+        bodyRenderer.sprite = skinData.bodySprite;
+        armRenderer.sprite = skinData.handSprite;
+        headRenderer.sprite = skinData.headSprite;
     }
 }

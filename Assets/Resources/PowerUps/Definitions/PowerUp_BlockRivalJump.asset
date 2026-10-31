@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerUp_BlockRivalJump
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.PowerUpDefinition
   polarity: 0
-  target: 0
-  effect: {fileID: 0}
-  duration: 5
-  icon: {fileID: 0}
+  target: 1
+  effect: {fileID: 11400000, guid: 8b5f4480e14b0c2438cad51bbc640546, type: 2}
+  duration: 10
+  icon: {fileID: 21300000, guid: da2c1f9d256684a12854ff74a42c337a, type: 3}

@@ -9,7 +9,10 @@ namespace BaskgayBall.PowerUps
     [RequireComponent(typeof(Collider2D))]
     public class PowerUpPickup : MonoBehaviour
     {
+        [SerializeField] private Color positiveColor = Color.green;
+        [SerializeField] private Color negativeColor = Color.red;
         [SerializeField] private SpriteRenderer iconRenderer;
+        [SerializeField] private SpriteRenderer iconBgRenderer;
 
         private bool _resolved;
 
@@ -22,6 +25,7 @@ namespace BaskgayBall.PowerUps
         {
             Definition = definition;
             iconRenderer.sprite = definition.Icon;
+            iconBgRenderer.color = definition.Polarity == EPowerUpPolarity.Positive ? positiveColor : negativeColor;
             StartCoroutine(LifetimeRoutine(lifetime));
         }
 

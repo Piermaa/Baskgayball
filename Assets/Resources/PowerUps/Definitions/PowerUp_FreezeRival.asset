@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerUp_FreezeRival
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.PowerUpDefinition
   polarity: 0
-  target: 0
-  effect: {fileID: 0}
-  duration: 5
-  icon: {fileID: 0}
+  target: 1
+  effect: {fileID: 11400000, guid: bd17ded4ebbe63e48b194cceccd29165, type: 2}
+  duration: 10
+  icon: {fileID: 21300000, guid: 3304b0612ee754c35820105618714c0c, type: 3}

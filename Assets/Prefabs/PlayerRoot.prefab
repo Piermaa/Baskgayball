@@ -42,6 +42,9 @@ GameObject:
   - component: {fileID: 1267295289375157538}
   - component: {fileID: 1464413238344387771}
   - component: {fileID: 2202157831896818250}
+  - component: {fileID: 949910156052696973}
+  - component: {fileID: 3070422309240983958}
+  - component: {fileID: 2434103624697457492}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -102,6 +105,50 @@ MonoBehaviour:
   headRigidbody: {fileID: 5827692688320691653}
   jointsToRecreate:
   - {fileID: 2167893255611522049}
+--- !u!114 &949910156052696973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846225810727631591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b059ee4315a905449b377532e84e8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCosmeticsController
+  bodyRenderer: {fileID: 6830356132002108556}
+  armRenderer: {fileID: 8180034482060861652}
+  headRenderer: {fileID: 2662606998571263757}
+--- !u!114 &3070422309240983958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846225810727631591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c545bb6fc65939e429e32bc3f12ccdcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.PlayerModifiers
+  _entries: []
+--- !u!114 &2434103624697457492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846225810727631591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759036de2cf129343b58407ee2846872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFreezeHandler
+  modifiers: {fileID: 3070422309240983958}
+  bodies:
+  - {fileID: 5827692688320691653}
+  - {fileID: 7986018771956959808}
 --- !u!1 &2108953484969260044
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +448,7 @@ SpriteRenderer:
   m_Size: {x: 0.6875, y: 1.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4207995640336191457
 GameObject:
@@ -492,7 +539,7 @@ SpriteRenderer:
   m_Size: {x: 1.1875, y: 1.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5744152642354754424
 GameObject:
@@ -645,7 +692,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8674545311626530131
 GameObject:
@@ -761,7 +808,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.014, y: 0.728}
+  m_ConnectedAnchor: {x: 0.013999939, y: 0.7279999}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:

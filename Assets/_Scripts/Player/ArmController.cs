@@ -1,5 +1,6 @@
 using BaskgayBall.Core;
 using BaskgayBall.Input;
+using BaskgayBall.PowerUps;
 using UnityEngine;
 
 namespace BaskgayBall.Player
@@ -31,9 +32,9 @@ namespace BaskgayBall.Player
         [SerializeField] private float ballGravityScale = 1f;
         [SerializeField] private Color trajectoryGizmoColor = Color.red;
 
+        private PlayerModifiers _modifiers;
         private float _currentAngle = 0;
         private bool _isCharging = false;
-
         public Transform PrefabRoot => prefabRoot;
 
         private void Start()
@@ -45,18 +46,26 @@ namespace BaskgayBall.Player
                     : RoundManager.Instance.Player1Hoop.transform;
             }
 
+            prefabRoot.TryGetComponent(out _modifiers);
             ResetState();
         }
 
         private void Update()
         {
+            if (_modifiers != null && _modifiers.IsFrozen)
+            {
+                return;
+            }
+
+            float speed = chargeSpeedDegPerSec * (_modifiers != null ? _modifiers.TimeScale : 1f);
+
             if (_isCharging)
             {
-                _currentAngle = Mathf.MoveTowards(_currentAngle, maxChargeAngle, chargeSpeedDegPerSec * Time.deltaTime);
+                _currentAngle = Mathf.MoveTowards(_currentAngle, maxChargeAngle, speed * Time.deltaTime);
             }
             else if (!Mathf.Approximately(_currentAngle, restAngle))
             {
-                _currentAngle = Mathf.MoveTowards(_currentAngle, restAngle, chargeSpeedDegPerSec * Time.deltaTime);
+                _currentAngle = Mathf.MoveTowards(_currentAngle, restAngle, speed * Time.deltaTime);
             }
 
             ApplyRotation();

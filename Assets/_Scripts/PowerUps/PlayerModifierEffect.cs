@@ -1,4 +1,5 @@
 using BaskgayBall.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BaskgayBall.PowerUps
@@ -11,17 +12,18 @@ namespace BaskgayBall.PowerUps
 
         public override void Apply(in PowerUpContext context)
         {
-            if (PlayerModifiers.TryGet(context.TargetSide, out PlayerModifiers modifiers))
+            IReadOnlyList<PlayerModifiers> team = PlayerModifiers.GetTeam(context.TargetSide);
+            for (int i = 0; i < team.Count; i++)
             {
-                modifiers.Add(context.Definition, kind, value);
+                team[i].Add(context.Definition, kind, value);
             }
         }
-
         public override void Remove(in PowerUpContext context)
         {
-            if (PlayerModifiers.TryGet(context.TargetSide, out PlayerModifiers modifiers))
+            IReadOnlyList<PlayerModifiers> team = PlayerModifiers.GetTeam(context.TargetSide);
+            for (int i = 0; i < team.Count; i++)
             {
-                modifiers.RemoveAll(context.Definition);
+                team[i].RemoveAll(context.Definition);
             }
         }
     }

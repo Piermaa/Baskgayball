@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903d8ed648d87fc4bad41a60ca1d6121, type: 3}
   m_Name: PowerUp_InvertJump
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.PowerUpDefinition
-  polarity: 0
+  polarity: 1
   target: 0
-  effect: {fileID: 0}
-  duration: 5
-  icon: {fileID: 0}
+  effect: {fileID: 11400000, guid: 7bd29e6a9da4ec54bbfbfa653d15b1d2, type: 2}
+  duration: 10
+  icon: {fileID: 21300000, guid: 0cbc854e72cf842e4b49c9aa79707787, type: 3}

@@ -1,23 +1,27 @@
-using BaskgayBall.Input;
 using System;
 using System.Collections.Generic;
+using BaskgayBall.Input;
 using UnityEngine;
 
 namespace BaskgayBall.PowerUps
 {
     public class PlayerModifiers : MonoBehaviour
     {
-        private static readonly Dictionary<EPlayerSide, PlayerModifiers> Registry =
-            new Dictionary<EPlayerSide, PlayerModifiers>();
+        private static readonly Dictionary<EPlayerSide, List<PlayerModifiers>> Registry =
+            new Dictionary<EPlayerSide, List<PlayerModifiers>>();
 
-        private struct Entry
+        private static readonly List<PlayerModifiers> EmptyTeam = new List<PlayerModifiers>();
+
+        [Serializable]
+        private struct ModifierEntry
         {
-            public object Source;
+            [NonSerialized] public object Source;
+            public string SourceName;
             public EPlayerModifierKind Kind;
             public float Value;
         }
 
-        private readonly List<Entry> _entries = new List<Entry>(4);
+        [SerializeField] private List<ModifierEntry> _entries = new List<ModifierEntry>(4);
 
         public EPlayerSide Side { get; private set; }
 
@@ -35,9 +39,9 @@ namespace BaskgayBall.PowerUps
             Registry.Clear();
         }
 
-        public static bool TryGet(EPlayerSide side, out PlayerModifiers modifiers)
+        public static IReadOnlyList<PlayerModifiers> GetTeam(EPlayerSide side)
         {
-            return Registry.TryGetValue(side, out modifiers);
+            return Registry.TryGetValue(side, out List<PlayerModifiers> team) ? team : EmptyTeam;
         }
 
         private void Awake()
@@ -47,20 +51,36 @@ namespace BaskgayBall.PowerUps
 
         private void OnEnable()
         {
-            Registry[Side] = this;
+            if (!Registry.TryGetValue(Side, out List<PlayerModifiers> team))
+            {
+                team = new List<PlayerModifiers>(2);
+                Registry[Side] = team;
+            }
+
+            if (!team.Contains(this))
+            {
+                team.Add(this);
+            }
         }
 
         private void OnDisable()
         {
-            if (Registry.TryGetValue(Side, out PlayerModifiers current) && current == this)
+            if (Registry.TryGetValue(Side, out List<PlayerModifiers> team))
             {
-                Registry.Remove(Side);
+                team.Remove(this);
             }
         }
 
         public void Add(object source, EPlayerModifierKind kind, float value = 1f)
         {
-            _entries.Add(new Entry { Source = source, Kind = kind, Value = value });
+            _entries.Add(new ModifierEntry
+            {
+                Source = source,
+                SourceName = GetSourceName(source),
+                Kind = kind,
+                Value = value
+            });
+
             Changed?.Invoke();
         }
 
@@ -82,6 +102,16 @@ namespace BaskgayBall.PowerUps
 
             _entries.Clear();
             Changed?.Invoke();
+        }
+
+        private static string GetSourceName(object source)
+        {
+            if (source is UnityEngine.Object unityObject)
+            {
+                return unityObject.name;
+            }
+
+            return source != null ? source.ToString() : "null";
         }
 
         private bool Has(EPlayerModifierKind kind)

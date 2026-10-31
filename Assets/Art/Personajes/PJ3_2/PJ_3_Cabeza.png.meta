@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a3cb8d5359b5acd4090142754da41bc1
+guid: 6148b57888345f94b874a460ce13ff91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8108498951787356765
-    second: PJ_3_Cuerpo_0
+      213: 671685067416891801
+    second: PJ_3_Cabeza_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,10 +49,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  alignment: 9
+  spritePivot: {x: 0.5166015, y: 0.69328827}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 10, y: 44, z: 5, w: 1}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -99,7 +99,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 64
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: 48
     textureCompression: 1
     compressionQuality: 100
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PJ_1_Brazo_0
+      name: PJ_3_Cabeza_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 19
-        width: 11
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 32
+        y: 176
+        width: 85
+        height: 80
+      alignment: 9
+      pivot: {x: 0.4133615, y: 0.06658268}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ae08b39c61317de40800000000000000
-      internalID: 5681030443537498346
+      spriteID: 2037c8d4f8283b34ab35ce9a3ac7f9db
+      internalID: -397321844
       vertices: []
       indices: 
       edges: []
@@ -152,7 +152,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -161,7 +161,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PJ_1_Brazo_0: 5681030443537498346
+      PJ_1_Cabeza_0: -6206929709166130921
+      PJ_3_Cabeza_0: -397321844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

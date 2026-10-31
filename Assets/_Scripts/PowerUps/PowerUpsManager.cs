@@ -28,11 +28,50 @@ namespace BaskgayBall.PowerUps
                 StartPowerUpsRoutine();
             }
         }
+        private void OnEnable()
+        {
+            GlobalEvents.OnStartRound += HandleStartRound;
+            GlobalEvents.OnEndRound += HandleEndRound;
+            GlobalEvents.OnFinishRound += StopAndClear;
+            GlobalEvents.OnFinishMatch += StopAndClear;
+        }
 
         private void OnDisable()
         {
+            GlobalEvents.OnStartRound -= HandleStartRound;
+            GlobalEvents.OnEndRound -= HandleEndRound;
+            GlobalEvents.OnFinishRound -= StopAndClear;
+            GlobalEvents.OnFinishMatch -= StopAndClear;
             StopPowerUpsRoutine();
         }
+        private void HandleStartRound()
+        {
+            if (GameManager.Instance.GameModeMng.IsChaosMode)
+            {
+                StartPowerUpsRoutine();
+            }
+        }
+        private void HandleEndRound(ERoundEndReason reason, EPlayerSide side)
+        {
+            StopAndClear();
+        }
+
+        private void StopAndClear()
+        {
+            StopPowerUpsRoutine();
+            effectRunner.ClearAll();
+        }
+
+        //private void HandleFinishRound()
+        //{
+        //    ResetForNewRound();
+        //}
+
+        //private void HandleFinishMatch()
+        //{
+        //    StopPowerUpsRoutine();
+        //    effectRunner.ClearAll();
+        //}
 
         public void ResetForNewRound()
         {

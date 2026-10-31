@@ -18,7 +18,7 @@ namespace BaskgayBall.Ball
 
         
         [SerializeField] private TrailRenderer trailRenderer;
-
+        [SerializeField] private int scoreValue = 1;
         [Header("Grab Immunity")]
         [Tooltip("How long, in seconds, after a throw the ball refuses to be grabbed by the same side that threw it. Prevents a teammate standing nearby from instantly swallowing a fresh pass or shot before it has visibly left the thrower's hand. Does not affect the opposing side, which can intercept immediately.")]
         [SerializeField] private float sameSideGrabImmunityDuration = 0.2f;

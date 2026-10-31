@@ -99,7 +99,7 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 64
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: 48
     textureCompression: 1
     compressionQuality: 100
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PJ_1_Brazo_0
+      name: PJ_2_Brazo_0
       rect:
         serializedVersion: 2
         x: 7
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PJ_1_Brazo_0: 5681030443537498346
+      PJ_2_Brazo_0: 5681030443537498346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903d8ed648d87fc4bad41a60ca1d6121, type: 3}
   m_Name: PowerUp_NoJump
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.PowerUpDefinition
-  polarity: 0
+  polarity: 1
   target: 0
-  effect: {fileID: 0}
-  duration: 5
-  icon: {fileID: 0}
+  effect: {fileID: 11400000, guid: 8b5f4480e14b0c2438cad51bbc640546, type: 2}
+  duration: 10
+  icon: {fileID: 21300000, guid: 1e9b05c1c6c3f4fbba03380e27c6ffe8, type: 3}
