@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1604a5d782186b248a3ba93a15cacf4b, type: 3}
   m_Name: SurfaceProfile_Default
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.Stage.SurfaceProfile
+  groundColor: {r: 0.5176471, g: 0.010034999, b: 0, a: 1}
   material: {fileID: 6200000, guid: a7f212937bd8fb847bf24c4233b61e32, type: 2}
   uprightSpringMultiplier: 1
   uprightDampingMultiplier: 1
   landingWobbleMultiplier: 1
-  groundHorizontalDrag: 0.4
+  groundHorizontalDrag: 0

@@ -8,16 +8,14 @@ namespace BaskgayBall.Stage
     {
         [SerializeField] private SurfaceProfile[] profiles;
         [SerializeField] private Collider2D[] floorColliders;
-
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private SurfaceProfile currentProfile;
         public SurfaceProfile Current 
         { 
             get => currentProfile; 
             private set 
             { currentProfile = value; } 
         }
-        [SerializeField] private SurfaceProfile currentProfile;
-
-
 
         public void Roll()
         {
@@ -27,6 +25,11 @@ namespace BaskgayBall.Stage
             {
                 floorColliders[i].sharedMaterial = Current.Material;
             }
+
+            Color tempColor = Current.GroundColor;
+            tempColor.a = 0.1f;
+            spriteRenderer.color = tempColor;
+            Debug.Log($"[Surface] rolled {Current.name}, frame={Time.frameCount}");
         }
     }
 }

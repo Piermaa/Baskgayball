@@ -59,7 +59,7 @@ namespace BaskgayBall.Player
         private float _baseLinearDamping;
         private float _baseAngularDamping;
 
-        private SurfaceProfile _surface;
+        private SurfaceProfile _surface => RoundManager.Instance != null ? RoundManager.Instance.CurrentSurface : null;
 
         private float SpringStrength => uprightSpringStrength * (_surface != null ? _surface.UprightSpringMultiplier : 1f);
         private float SpringDamping => uprightSpringDamping * (_surface != null ? _surface.UprightDampingMultiplier : 1f);
@@ -74,7 +74,6 @@ namespace BaskgayBall.Player
             _baseLinearDamping = _rigidbody.linearDamping;
             _baseAngularDamping = _rigidbody.angularDamping;
             prefabRoot.TryGetComponent(out _modifiers);
-            _surface = RoundManager.Instance != null ? RoundManager.Instance.CurrentSurface : null;
             ResetState();
         }
 
@@ -160,7 +159,6 @@ namespace BaskgayBall.Player
         {
             float impactSpeed = Mathf.Abs(_previousVerticalVelocity);
             float wobbleAmount = Mathf.Clamp01(impactSpeed / (landingReferenceSpeed * timeScale));
-
             _rigidbody.AddTorque(LandingWobble * wobbleAmount * GetLeanSign() * timeScale, ForceMode2D.Impulse);
         }
 

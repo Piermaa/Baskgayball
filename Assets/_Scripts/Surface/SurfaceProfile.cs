@@ -5,6 +5,8 @@ namespace BaskgayBall.Stage
     [CreateAssetMenu(fileName = "SurfaceProfile", menuName = "BaskgayBall/Surface Profile")]
     public class SurfaceProfile : ScriptableObject
     {
+        [Header("Visuals")]
+        [SerializeField] private Color groundColor;
         [Header("Physics")]
         [SerializeField] private PhysicsMaterial2D material;
 
@@ -13,7 +15,7 @@ namespace BaskgayBall.Stage
         [SerializeField] private float uprightDampingMultiplier = 1f;
         [SerializeField] private float landingWobbleMultiplier = 1f;
         [SerializeField] private float groundHorizontalDrag = 0f;
-
+        public Color GroundColor => groundColor;
         public PhysicsMaterial2D Material => material;
         public float UprightSpringMultiplier => uprightSpringMultiplier;
         public float UprightDampingMultiplier => uprightDampingMultiplier;
