@@ -3,7 +3,7 @@ using BaskgayBall.Input;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using BaskgayBall.Stage;
 public enum ERoundEndReason
 {
     None,
@@ -40,7 +40,10 @@ public class RoundManager : MonoBehaviour, IResettable
     [SerializeField] private int coinsToAddWhenMatchEnds = 50;
     public int player1Score = 0;
     public int player2Score = 0;
-    
+
+    [Header("Stage")]
+    [SerializeField] private SurfaceController surfaceController;
+    public SurfaceProfile CurrentSurface => surfaceController != null ? surfaceController.Current : null;
 
     private void Awake()
     {
@@ -62,10 +65,10 @@ public class RoundManager : MonoBehaviour, IResettable
 
     private void StartRound()
     {
+        if (surfaceController != null) surfaceController.Roll();
         GlobalEvents.DispatchResetRound(true);
         Instantiate(BasketHelpers.GetRandomElement(ballPrefabs), ballSpawnPosition);
     }
-
     public bool AddScore(EPlayerSide playerSide, int scoreAmount = 1)
     {
         Handheld.Vibrate();

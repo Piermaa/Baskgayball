@@ -1,6 +1,9 @@
 using BaskgayBall.Core;
 using BaskgayBall.PowerUps;
+using BaskgayBall.Stage;
 using UnityEngine;
+using BaskgayBall.Stage;
+
 
 namespace BaskgayBall.Player
 {
@@ -56,6 +59,12 @@ namespace BaskgayBall.Player
         private float _baseLinearDamping;
         private float _baseAngularDamping;
 
+        private SurfaceProfile _surface;
+
+        private float SpringStrength => uprightSpringStrength * (_surface != null ? _surface.UprightSpringMultiplier : 1f);
+        private float SpringDamping => uprightSpringDamping * (_surface != null ? _surface.UprightDampingMultiplier : 1f);
+        private float LandingWobble => landingWobbleTorque * (_surface != null ? _surface.LandingWobbleMultiplier : 1f);
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -65,7 +74,7 @@ namespace BaskgayBall.Player
             _baseLinearDamping = _rigidbody.linearDamping;
             _baseAngularDamping = _rigidbody.angularDamping;
             prefabRoot.TryGetComponent(out _modifiers);
-
+            _surface = RoundManager.Instance != null ? RoundManager.Instance.CurrentSurface : null;
             ResetState();
         }
 
@@ -102,6 +111,13 @@ namespace BaskgayBall.Player
 
             _wasGrounded = groundedNow;
             IsGrounded = groundedNow;
+
+            if (IsGrounded && _surface != null && _surface.GroundHorizontalDrag > 0f)
+            {
+                Vector2 velocity = _rigidbody.linearVelocity;
+                velocity.x *= Mathf.Max(0f, 1f - _surface.GroundHorizontalDrag * Time.fixedDeltaTime);
+                _rigidbody.linearVelocity = velocity;
+            }
 
             if (_rigidbody.linearVelocity.y < 0f)
             {
@@ -145,7 +161,7 @@ namespace BaskgayBall.Player
             float impactSpeed = Mathf.Abs(_previousVerticalVelocity);
             float wobbleAmount = Mathf.Clamp01(impactSpeed / (landingReferenceSpeed * timeScale));
 
-            _rigidbody.AddTorque(landingWobbleTorque * wobbleAmount * GetLeanSign() * timeScale, ForceMode2D.Impulse);
+            _rigidbody.AddTorque(LandingWobble * wobbleAmount * GetLeanSign() * timeScale, ForceMode2D.Impulse);
         }
 
         // Picks which way a wobble impulse should push. It reinforces whatever lean the body
@@ -176,8 +192,8 @@ namespace BaskgayBall.Player
         {
             float angleRad = Mathf.DeltaAngle(0f, _rigidbody.rotation) * Mathf.Deg2Rad;
             float angularVelocityRad = _rigidbody.angularVelocity * Mathf.Deg2Rad;
-            float torque = -uprightSpringStrength * timeScale * timeScale * angleRad
-                           - uprightSpringDamping * timeScale * angularVelocityRad;
+            float torque = -SpringStrength * timeScale * timeScale * angleRad
+                           -SpringDamping * timeScale * angularVelocityRad;
             _rigidbody.AddTorque(torque);
         }
         public void Jump()

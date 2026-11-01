@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 57131866}
   - component: {fileID: 57131867}
   - component: {fileID: 57131868}
+  - component: {fileID: 57131869}
   m_Layer: 9
   m_Name: GroundCollision
   m_TagString: Untagged
@@ -305,6 +306,24 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &57131869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57131863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1339e818db81f204490ec0a49bb2f70f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.Stage.SurfaceController
+  profiles:
+  - {fileID: 11400000, guid: 6e126fae7b344914692c90d21fbf5ed8, type: 2}
+  - {fileID: 11400000, guid: 9fe84ab262ccc394f9fce287d33de364, type: 2}
+  - {fileID: 11400000, guid: a942893e13e0e194590d15db6ef13cb9, type: 2}
+  floorColliders:
+  - {fileID: 57131866}
 --- !u!1 &392103478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4678718332800479133, guid: 7c77f2a4e3c71e0459cc4fd0605533a1, type: 3}
@@ -2100,6 +2119,10 @@ PrefabInstance:
       propertyPath: ballSpawnPosition
       value: 
       objectReference: {fileID: 1172852770}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: surfaceController
+      value: 
+      objectReference: {fileID: 57131869}
     - target: {fileID: 5627209593308966795, guid: 41746f27c6e16854983e09e50508c307, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
