@@ -29,7 +29,6 @@ namespace BaskgayBall.Stage
             Color tempColor = Current.GroundColor;
             tempColor.a = 0.1f;
             spriteRenderer.color = tempColor;
-            Debug.Log($"[Surface] rolled {Current.name}, frame={Time.frameCount}");
         }
     }
 }

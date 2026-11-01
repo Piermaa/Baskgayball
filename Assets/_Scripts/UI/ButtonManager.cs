@@ -8,10 +8,16 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Color colorTint = Color.white;
     [Header("Icon - Internal")]
     [SerializeField] private Image image = null;
-
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private Button button;
     private void Awake()
     {
         RefreshButtonStyle();
+        button?.onClick.AddListener(PlayButtonSound);
+    }
+    private void PlayButtonSound()
+    {
+        audioSource?.Play();
     }
 
 #if UNITY_EDITOR

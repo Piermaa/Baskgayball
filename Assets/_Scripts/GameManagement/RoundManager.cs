@@ -41,6 +41,9 @@ public class RoundManager : MonoBehaviour, IResettable
     public int player1Score = 0;
     public int player2Score = 0;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource goalSound;
+
     [Header("Stage")]
     [SerializeField] private SurfaceController surfaceController;
     public SurfaceProfile CurrentSurface => surfaceController != null ? surfaceController.Current : null;
@@ -84,11 +87,11 @@ public class RoundManager : MonoBehaviour, IResettable
                 break;
         }
 
+        goalSound.Play();
         GlobalEvents.DispatchScoreChange(player1Score, player2Score, playerSide);
 
         bool player1Won = player1Score >= scoreToWin;
         bool player2Won = player2Score >= scoreToWin;
-        print($"Player 1 score: {player1Score}, Player 2 score: {player2Score}");
         return player1Won || player2Won;
     }
 

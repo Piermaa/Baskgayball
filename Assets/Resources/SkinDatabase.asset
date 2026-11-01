@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026061adcc3a2524982f5189cfbca7ce, type: 3}
   m_Name: SkinDatabase
   m_EditorClassIdentifier: Assembly-CSharp::SkinDataBase
+  player1Color: {r: 0, g: 0.047753334, b: 1, a: 1}
+  player2Color: {r: 1, g: 0, b: 0.22067499, a: 1}
   skins:
   - {fileID: 11400000, guid: 9557f20a8ad85474e93f18fc84ad8f2f, type: 2}
   - {fileID: 11400000, guid: 15be4fb4edacf3d498ac52049e35eb16, type: 2}
