@@ -1,60 +1,61 @@
 using UnityEngine;
 using GoogleMobileAds.Api;
 
-public class BannerAd : MonoBehaviour
+namespace BaskgayBall
 {
-    private BannerView bannerView;
-
-    private void Start()
+    public class BannerAd : MonoBehaviour
     {
-        LoadBanner();   
-    }
+        private BannerView bannerView;
 
-    public void LoadBanner()
-    {
-        DestroyBanner();
-
-        bannerView = new BannerView(
-            GetBannerAdUnitId(),
-            AdSize.LargeBanner,
-            AdPosition.Bottom
-        );
-
-        bannerView.OnBannerAdLoaded += ShowBanner;
-        AdRequest request = new AdRequest();
-
-        bannerView.LoadAd(request);
-    }
-
-    public void DestroyBanner()
-    {
-        if (bannerView == null)
+        private void Start()
         {
-            return;
+            LoadBanner();
         }
-        bannerView.OnBannerAdLoaded -= ShowBanner;
-        bannerView.Destroy();
-        bannerView = null;
-    }
-    private string GetBannerAdUnitId()
-    {
+
+        private void OnDestroy()
+        {
+            DestroyBanner();
+        }
+
+        public void LoadBanner()
+        {
+            DestroyBanner();
+
+            // Full width adaptive banner. Height is chosen by AdMob based on the width,
+            // and in landscape it ends up short and wide.
+            AdSize adaptiveSize =
+                AdSize.GetLandscapeAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
+
+            bannerView = new BannerView(
+                GetBannerAdUnitId(),
+                adaptiveSize,
+                AdPosition.Bottom
+            );
+
+            AdRequest request = new AdRequest();
+            bannerView.LoadAd(request);
+        }
+
+        public void DestroyBanner()
+        {
+            if (bannerView == null)
+            {
+                return;
+            }
+
+            bannerView.Destroy();
+            bannerView = null;
+        }
+
+        private string GetBannerAdUnitId()
+        {
 #if UNITY_ANDROID
-        return "ca-app-pub-3940256099942544/6300978111";
+            return "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IOS
-        return "ca-app-pub-3940256099942544/2934735716";
+            return "ca-app-pub-3940256099942544/2934735716";
 #else
-        return "unused";
+            return "unused";
 #endif
-    }
-
-    public void ShowBanner()
-    {
-        bannerView.Show();
-    }
-
-    private void OnBannerLoaded()
-    {
-        Debug.Log("Banner ad loaded successfully.");
-        ShowBanner();
+        }
     }
 }
