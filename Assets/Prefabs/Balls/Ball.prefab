@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketRandomClone.Ball.Ball
   trailRenderer: {fileID: 4261124382757848287}
+  scoreValue: 1
   sameSideGrabImmunityDuration: 0.2
 --- !u!58 &5778989118589996939
 CircleCollider2D:
@@ -346,7 +347,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7525372856651088450, guid: 76236bae75a44fa4d9c7a5b359b0f397, type: 3}
-  m_Color: {r: 1, g: 0.6068678, b: 0, a: 1}
+  m_Color: {r: 0.9528302, g: 0.7175048, b: 0.39101997, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
