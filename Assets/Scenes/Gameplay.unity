@@ -527,9 +527,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.012820513
     width: 1
-    height: 1
+    height: 0.9738461
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -2125,6 +2125,14 @@ PrefabInstance:
       propertyPath: surfaceController
       value: 
       objectReference: {fileID: 57131869}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: ballPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606923629949227709, guid: 41746f27c6e16854983e09e50508c307, type: 3}
+      propertyPath: 'ballPrefabs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2233577230721146490, guid: bdcfb535d693aea468d44235cebf9974, type: 3}
     - target: {fileID: 5627209593308966795, guid: 41746f27c6e16854983e09e50508c307, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
