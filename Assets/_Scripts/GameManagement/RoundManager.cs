@@ -35,6 +35,9 @@ public class RoundManager : MonoBehaviour, IResettable
     [SerializeField] private int scoreToWin = 5;
     [SerializeField] private float onScoreTimeScale = 0.1f;
     [SerializeField] private float onScoreResolveDelay = 2;
+
+    [Header("Coins")]
+    [SerializeField] private int coinsToAddWhenMatchEnds = 50;
     public int player1Score = 0;
     public int player2Score = 0;
     
@@ -63,16 +66,16 @@ public class RoundManager : MonoBehaviour, IResettable
         Instantiate(BasketHelpers.GetRandomElement(ballPrefabs), ballSpawnPosition);
     }
 
-    public bool AddScore(EPlayerSide playerSide)
+    public bool AddScore(EPlayerSide playerSide, int scoreAmount = 1)
     {
         Handheld.Vibrate();
         switch (playerSide)
         {
             case EPlayerSide.Player1:
-                player1Score++;
+                player1Score += scoreAmount;
                 break;
             case EPlayerSide.Player2:
-                player2Score++;
+                player2Score += scoreAmount;
                 break;
             default:
                 break;
@@ -96,14 +99,14 @@ public class RoundManager : MonoBehaviour, IResettable
         return ballX < leftBoundaryX || ballX > rightBoundaryX || isBelowYMin;
     }
 
-    public void EndRound(ERoundEndReason endReason, EPlayerSide playerSide)
+    public void EndRound(ERoundEndReason endReason, EPlayerSide playerSide, int amount = 1)
     {
         switch (endReason)
         {
             case ERoundEndReason.None:
                 break;
             case ERoundEndReason.Goal:
-                bool isGameFinished = AddScore(playerSide);
+                bool isGameFinished = AddScore(playerSide, amount);
                 StartCoroutine(ResolveScoreChange(isGameFinished));
                 break;
             case ERoundEndReason.OOB:
@@ -151,6 +154,7 @@ public class RoundManager : MonoBehaviour, IResettable
 
     private void FinishMatch()
     {
+        GameManager.Instance.CoinsMng.AddCoins(coinsToAddWhenMatchEnds);
         GlobalEvents.DispatchFinishMatch();
     }
 }

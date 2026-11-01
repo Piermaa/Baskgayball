@@ -13,6 +13,7 @@ namespace BaskgayBall.Ball
     [RequireComponent(typeof(Rigidbody2D))]
     public class Ball : MonoBehaviour, ISided
     {
+        public int ScoreAmount => scoreValue;
         public BallState State { get; private set; } = BallState.Free;
         public EPlayerSide Side => owningSide;
 
