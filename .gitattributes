@@ -104,7 +104,6 @@ Packages/packages-lock.json linguist-generated
 *.mod                   lfs
 *.ogg                   lfs
 *.s3m                   lfs
-*.wav                   lfs
 *.xm                    lfs
 
 # Video
