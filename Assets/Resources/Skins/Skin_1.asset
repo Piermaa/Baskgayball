@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5389cc6069b24aa90cba4b846d898, type: 3}
   m_Name: Skin_1
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  cost: 0
+  cost: 5
   displayName: Luca
   fillSprite: {fileID: 21300000, guid: c59520cc701e1744783386254dbd99ba, type: 3}
   headSprite: {fileID: -6206929709166130921, guid: 1f7160021874cc14f9d1162fa573cc53, type: 3}

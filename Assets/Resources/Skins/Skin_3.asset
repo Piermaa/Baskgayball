@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d5389cc6069b24aa90cba4b846d898, type: 3}
   m_Name: Skin_3
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  cost: 0
+  cost: 15
   displayName: Diego
   fillSprite: {fileID: -900344255068914368, guid: b9f732ec6e100854396afe99e776284b, type: 3}
   headSprite: {fileID: -397321844, guid: 6148b57888345f94b874a460ce13ff91, type: 3}

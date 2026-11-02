@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace BaskgayBall.Persistence
         public int coins;
         public int skinSelectedPlayer1;
         public int skinSelectedPlayer2;
+        public List<int> unlockedSkins = new List<int> { 0 };
     }
 
     public interface ISaveService
@@ -37,7 +39,12 @@ namespace BaskgayBall.Persistence
 
             try
             {
-                return JsonUtility.FromJson<SaveData>(File.ReadAllText(Path_));
+                SaveData loaded = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path_));
+                if (loaded.unlockedSkins == null || loaded.unlockedSkins.Count == 0)
+                {
+                    loaded.unlockedSkins = new List<int> { 0 };
+                }
+                return loaded;
             }
             catch (System.Exception e)
             {

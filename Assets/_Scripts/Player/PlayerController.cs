@@ -18,7 +18,7 @@ namespace BaskgayBall.Player
 
         [SerializeField] private BodyMovement bodyMovement;
         private PlayerModifiers _modifiers;
-        private bool finishedMatch;
+        private bool finishedMatch = false;
         public EPlayerSide Side => side;
 
 
@@ -36,11 +36,15 @@ namespace BaskgayBall.Player
 
         private void OnEnable()
         {
-            var manager = TouchInputManager.Instance;
-            if (manager == null) return;
+            finishedMatch = false;
 
-            manager.OnPlayerPressStart += HandlePressStart;
-            manager.OnPlayerPressEnd += HandlePressEnd;
+            var manager = TouchInputManager.Instance;
+            if (manager != null)
+            {
+                manager.OnPlayerPressStart += HandlePressStart;
+                manager.OnPlayerPressEnd += HandlePressEnd;
+            }
+
             GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
             GlobalEvents.OnStartMatch += GlobalEvents_OnStartMatch;
         }
@@ -58,10 +62,12 @@ namespace BaskgayBall.Player
         private void OnDisable()
         {
             var manager = TouchInputManager.Instance;
-            if (manager == null) return;
+            if (manager != null)
+            {
+                manager.OnPlayerPressStart -= HandlePressStart;
+                manager.OnPlayerPressEnd -= HandlePressEnd;
+            }
 
-            manager.OnPlayerPressStart -= HandlePressStart;
-            manager.OnPlayerPressEnd -= HandlePressEnd;
             GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
             GlobalEvents.OnStartMatch -= GlobalEvents_OnStartMatch;
         }
@@ -70,11 +76,11 @@ namespace BaskgayBall.Player
         {
             if (pressedSide != side) return;
             if (finishedMatch) return;
-            if (_modifiers.IsFrozen) return;
+            if (_modifiers != null && _modifiers.IsFrozen) return;
 
-            bodyMovement.Jump();
-            bodyMovement.SetHolding(true);
-            arm.BeginCharge();
+            bodyMovement?.Jump();
+            bodyMovement?.SetHolding(true);
+            arm?.BeginCharge();
         }
 
         private void HandlePressEnd(EPlayerSide pressedSide)
@@ -82,12 +88,12 @@ namespace BaskgayBall.Player
             if (pressedSide != side) return;
             if (finishedMatch) return;
 
-            bodyMovement.SetHolding(false);
-            Vector2 throwVelocity = arm.EndChargeAndGetThrowVelocity();
+            bodyMovement?.SetHolding(false);
+            Vector2 throwVelocity = arm != null ? arm.EndChargeAndGetThrowVelocity() : Vector2.zero;
 
-            if (_modifiers.IsFrozen) return;
+            if (_modifiers != null && _modifiers.IsFrozen) return;
 
-            if (hand.IsHoldingBall)
+            if (hand != null && hand.IsHoldingBall)
             {
                 hand.Throw(throwVelocity);
             }

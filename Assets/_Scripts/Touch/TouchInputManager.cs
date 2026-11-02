@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.SceneManagement;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 namespace BaskgayBall.Input
@@ -34,6 +36,9 @@ namespace BaskgayBall.Input
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            GlobalEvents.OnFinishMatch += ClearAllTouches;
+            GlobalEvents.OnStartMatch += ClearAllTouches;
         }
 
         private void OnEnable()
@@ -45,9 +50,20 @@ namespace BaskgayBall.Input
 
         private void OnDisable()
         {
+            // Si es un objeto duplicado destruido por ser singleton, no deshabilitar EnhancedTouch global!
+            if (Instance != this) return;
+
             Touch.onFingerDown -= HandleFingerDown;
             Touch.onFingerUp -= HandleFingerUp;
             EnhancedTouchSupport.Disable();
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            GlobalEvents.OnFinishMatch -= ClearAllTouches;
+            GlobalEvents.OnStartMatch -= ClearAllTouches;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            ClearAllTouches();
         }
 
         private void Update()
@@ -62,6 +78,8 @@ namespace BaskgayBall.Input
 
         private void HandleFingerDown(Finger finger)
         {
+            if (IsPointerOverUI(finger.index, finger.screenPosition)) return;
+
             TryRegisterTouch(finger.screenPosition, finger.index);
         }
 
@@ -81,7 +99,11 @@ namespace BaskgayBall.Input
 
             if (isPressed && !_mouseWasPressedLastFrame)
             {
-                TryRegisterTouch(Mouse.current.position.ReadValue(), MouseSimulatedId);
+                Vector2 mousePos = Mouse.current.position.ReadValue();
+                if (!IsPointerOverUI(MouseSimulatedId, mousePos))
+                {
+                    TryRegisterTouch(mousePos, MouseSimulatedId);
+                }
             }
             else if (!isPressed && _mouseWasPressedLastFrame)
             {
@@ -91,6 +113,19 @@ namespace BaskgayBall.Input
             _mouseWasPressedLastFrame = isPressed;
         }
 #endif
+
+        private bool IsPointerOverUI(int touchId, Vector2 screenPosition)
+        {
+            if (EventSystem.current == null) return false;
+
+            if (touchId == MouseSimulatedId)
+            {
+                return EventSystem.current.IsPointerOverGameObject();
+            }
+
+            return EventSystem.current.IsPointerOverGameObject(touchId);
+        }
+
         private void TryRegisterTouch(Vector2 screenPosition, int touchId)
         {
             EPlayerSide side = GetSideFromScreenPosition(screenPosition);
@@ -106,15 +141,35 @@ namespace BaskgayBall.Input
 
         private void ReleaseTouch(int touchId)
         {
+            var sidesToRemove = new List<EPlayerSide>();
             foreach (var kvp in _activeTouchIdBySide)
             {
-                if (kvp.Value != touchId) continue;
+                if (kvp.Value == touchId)
+                {
+                    sidesToRemove.Add(kvp.Key);
+                }
+            }
 
-                EPlayerSide side = kvp.Key;
+            foreach (var side in sidesToRemove)
+            {
                 _activeTouchIdBySide.Remove(side);
                 OnPlayerPressEnd?.Invoke(side);
-                return;
             }
+        }
+
+        public void ClearAllTouches()
+        {
+            var activeSides = new List<EPlayerSide>(_activeTouchIdBySide.Keys);
+            _activeTouchIdBySide.Clear();
+
+            foreach (var side in activeSides)
+            {
+                OnPlayerPressEnd?.Invoke(side);
+            }
+
+#if UNITY_EDITOR
+            _mouseWasPressedLastFrame = false;
+#endif
         }
 
         private static EPlayerSide GetSideFromScreenPosition(Vector2 screenPosition)

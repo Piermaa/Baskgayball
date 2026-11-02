@@ -61,6 +61,14 @@ public class RoundManager : MonoBehaviour, IResettable
         }
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     private void Start()
     {
         StartMatch();
@@ -135,6 +143,7 @@ public class RoundManager : MonoBehaviour, IResettable
         {
             FinishMatch();
         }
+        else
         {
             ResetState();
         }
