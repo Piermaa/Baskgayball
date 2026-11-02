@@ -58,7 +58,6 @@ public class RoundManager : MonoBehaviour, IResettable
         {
             Instance = this;
         }
-
     }
 
     private void Start()

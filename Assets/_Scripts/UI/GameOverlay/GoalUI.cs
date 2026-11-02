@@ -10,7 +10,11 @@ public class GoalUI : MonoBehaviour
         GlobalEvents.OnGameScoreChange += GlobalEvents_OnGameScoreChange;
         GlobalEvents.OnStartRound += GlobalEvents_OnStartRound;
     }
-
+    private void OnDisable()
+    {
+        GlobalEvents.OnGameScoreChange -= GlobalEvents_OnGameScoreChange;
+        GlobalEvents.OnStartRound -= GlobalEvents_OnStartRound;
+    }
     private void GlobalEvents_OnStartRound()
     {
        text.gameObject.SetActive(false);

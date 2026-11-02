@@ -2,8 +2,6 @@ using BaskgayBall.Core;
 using BaskgayBall.PowerUps;
 using BaskgayBall.Stage;
 using UnityEngine;
-using BaskgayBall.Stage;
-
 
 namespace BaskgayBall.Player
 {
