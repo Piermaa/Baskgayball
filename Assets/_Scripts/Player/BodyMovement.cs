@@ -1,3 +1,4 @@
+using BaskgayBall.Audio;
 using BaskgayBall.Core;
 using BaskgayBall.PowerUps;
 using BaskgayBall.Stage;
@@ -41,6 +42,10 @@ namespace BaskgayBall.Player
         [Header("Lean Detection")]
         [Tooltip("Rotation magnitude, in degrees, below which the body is considered upright with no established lean yet (e.g. right at round start). Below this, wobble direction falls back to spin, then facing.")]
         [SerializeField] private float uprightDeadZoneDegrees = 2f;
+
+        [Header("Audio Settings")]
+        [Tooltip("Minimum falling velocity magnitude required to trigger the landing sound.")]
+        [SerializeField] private float minLandingVelocityForSound = 1.5f;
 
         [Header("Setup")]
         [SerializeField] private Transform prefabRoot;
@@ -100,6 +105,11 @@ namespace BaskgayBall.Player
             {
                 ragdollState = EPlayerBodyRadgollState.JustLanded;
                 ApplyLandingWobble(timeScale);
+
+                if (Mathf.Abs(_previousVerticalVelocity) >= minLandingVelocityForSound)
+                {
+                    AudioManager.Instance?.PlayLand();
+                }
             }
             if (!groundedNow)
             {
@@ -208,6 +218,7 @@ namespace BaskgayBall.Player
 
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, 0f);
             _rigidbody.AddForce(direction * jumpForce * multiplier, ForceMode2D.Impulse);
+            AudioManager.Instance?.PlayJump();
         }
 
         public void SetHolding(bool isHolding)

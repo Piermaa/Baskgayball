@@ -1,3 +1,4 @@
+using BaskgayBall.Audio;
 using BaskgayBall.Input;
 using UnityEngine;
 
@@ -17,12 +18,18 @@ namespace BaskgayBall.Ball
         public BallState State { get; private set; } = BallState.Free;
         public EPlayerSide Side => owningSide;
 
-        
         [SerializeField] private TrailRenderer trailRenderer;
         [SerializeField] private int scoreValue = 1;
+
         [Header("Grab Immunity")]
         [Tooltip("How long, in seconds, after a throw the ball refuses to be grabbed by the same side that threw it. Prevents a teammate standing nearby from instantly swallowing a fresh pass or shot before it has visibly left the thrower's hand. Does not affect the opposing side, which can intercept immediately.")]
         [SerializeField] private float sameSideGrabImmunityDuration = 0.2f;
+
+        [Header("Bounce Audio Settings")]
+        [Tooltip("Minimum collision speed required to trigger a bounce sound.")]
+        [SerializeField] private float minBounceSpeed = 0.8f;
+        [Tooltip("Collision speed at which the bounce sound plays at full volume.")]
+        [SerializeField] private float maxBounceReferenceSpeed = 10f;
 
         private Rigidbody2D _rigidbody;
         private EPlayerSide owningSide;
@@ -66,11 +73,24 @@ namespace BaskgayBall.Ball
             _rigidbody.linearVelocity = velocity;
             State = BallState.InFlight;
             _thrownAtTime = Time.time;
+            AudioManager.Instance?.PlayBallThrow();
         }
 
         public void OnSettled()
         {
             State = BallState.Free;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (State == BallState.Held) return;
+
+            float impactSpeed = collision.relativeVelocity.magnitude;
+            if (impactSpeed >= minBounceSpeed)
+            {
+                float volumeScale = Mathf.Clamp01(impactSpeed / maxBounceReferenceSpeed);
+                AudioManager.Instance?.PlayBallBounce(volumeScale);
+            }
         }
 
         // Single source of truth for "is this ball allowed to be grabbed by this side right now".

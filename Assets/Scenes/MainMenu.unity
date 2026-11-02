@@ -119,6 +119,99 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &67640566
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5102938475610293841, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11853
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.46969
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293842, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: goalSound.clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: jumpSound.clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: landSound.clips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: 'jumpSound.clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: d14247490d43afa4c8b71d912daca227, type: 3}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: 'landSound.clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3dd8caf493c238a49b41aea4e55b9508, type: 3}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: ballThrowSound.clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: buttonPressSound.clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: 'ballThrowSound.clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 548bc22914b624f4a926f8ac9a769a2b, type: 3}
+    - target: {fileID: 5102938475610293843, guid: d40be2b2fa284691897c190f917c0214, type: 3}
+      propertyPath: 'buttonPressSound.clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 43e71d609c271044abbbcce9c06d3054, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d40be2b2fa284691897c190f917c0214, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,3 +812,4 @@ SceneRoots:
   - {fileID: 3086739756101030934}
   - {fileID: 1051374851}
   - {fileID: 2068567765}
+  - {fileID: 67640566}

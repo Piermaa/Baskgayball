@@ -1,3 +1,4 @@
+using BaskgayBall.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,14 @@ public class ButtonManager : MonoBehaviour
     }
     private void PlayButtonSound()
     {
-        audioSource?.Play();
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            AudioManager.Instance?.PlayButtonPress();
+        }
     }
 
 #if UNITY_EDITOR

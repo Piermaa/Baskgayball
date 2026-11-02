@@ -1,3 +1,4 @@
+using BaskgayBall.Audio;
 using BaskgayBall.Core;
 using BaskgayBall.Input;
 using System.Collections;
@@ -86,7 +87,12 @@ public class RoundManager : MonoBehaviour, IResettable
                 break;
         }
 
-        goalSound.Play();
+        if (goalSound != null)
+        {
+            goalSound.Play();
+        }
+        AudioManager.Instance?.PlayGoal();
+
         GlobalEvents.DispatchScoreChange(player1Score, player2Score, playerSide);
 
         bool player1Won = player1Score >= scoreToWin;

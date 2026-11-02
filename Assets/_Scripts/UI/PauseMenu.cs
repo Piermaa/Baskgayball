@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using BaskgayBall.Input;
+using BaskgayBall.Audio;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -73,6 +74,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (isPaused) return;
 
+        AudioManager.Instance?.PlayButtonPress();
         isPaused = true;
         Time.timeScale = 0f;
 
@@ -96,6 +98,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (!isPaused) return;
 
+        AudioManager.Instance?.PlayButtonPress();
         isPaused = false;
         Time.timeScale = 1f;
 
@@ -117,6 +120,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        AudioManager.Instance?.PlayButtonPress();
         // Restauramos el tiempo SIEMPRE antes de recargar
         Time.timeScale = 1f;
 
@@ -131,6 +135,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        AudioManager.Instance?.PlayButtonPress();
         // Restauramos el tiempo SIEMPRE antes de salir al menu
         Time.timeScale = 1f;
 
@@ -151,4 +156,3 @@ public class PauseMenu : MonoBehaviour
         }
     }
 }
-
