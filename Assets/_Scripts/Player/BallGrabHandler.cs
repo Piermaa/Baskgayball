@@ -67,8 +67,14 @@ namespace BaskgayBall.Player
             if (!_ballInRange.CanBeGrabbedBy(_sided.Side)) return false;
 
             _heldBall = _ballInRange;
-            _heldBall.OnGrabbed(transform, _sided.Side);
+            _heldBall.OnGrabbed(this, _sided.Side);
             return true;
+        }
+
+        public void OnBallStolen()
+        {
+            _heldBall = null;
+            _ballInRange = null;
         }
 
         public bool Throw(Vector2 velocity)

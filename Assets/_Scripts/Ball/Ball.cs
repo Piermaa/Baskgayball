@@ -1,5 +1,6 @@
 using BaskgayBall.Audio;
 using BaskgayBall.Input;
+using BaskgayBall.Player;
 using UnityEngine;
 
 namespace BaskgayBall.Ball
@@ -24,6 +25,8 @@ namespace BaskgayBall.Ball
         [Header("Grab Immunity")]
         [Tooltip("How long, in seconds, after a throw the ball refuses to be grabbed by the same side that threw it. Prevents a teammate standing nearby from instantly swallowing a fresh pass or shot before it has visibly left the thrower's hand. Does not affect the opposing side, which can intercept immediately.")]
         [SerializeField] private float sameSideGrabImmunityDuration = 0.2f;
+        [Tooltip("How long, in seconds, after being grabbed the ball cannot be stolen by the opposing side. Prevents instant back-and-forth steals while hands are overlapping.")]
+        [SerializeField] private float stealImmunityDuration = 0.2f;
 
         [Header("Bounce Audio Settings")]
         [Tooltip("Minimum collision speed required to trigger a bounce sound.")]
@@ -33,7 +36,9 @@ namespace BaskgayBall.Ball
 
         private Rigidbody2D _rigidbody;
         private EPlayerSide owningSide;
+        private BallGrabHandler _currentHolder;
         private float _thrownAtTime = float.NegativeInfinity;
+        private float _grabbedAtTime = float.NegativeInfinity;
         private bool _outOfBoundsTriggered;
 
         private void Awake()
@@ -56,19 +61,27 @@ namespace BaskgayBall.Ball
             Destroy(gameObject);
         }
 
-        public void OnGrabbed(Transform holder, EPlayerSide p_ownerSide)
+        public void OnGrabbed(BallGrabHandler holder, EPlayerSide p_ownerSide)
         {
+            if (_currentHolder != null && _currentHolder != holder)
+            {
+                _currentHolder.OnBallStolen();
+            }
+
+            _currentHolder = holder;
             State = BallState.Held;
+            _grabbedAtTime = Time.time;
             _rigidbody.linearVelocity = Vector2.zero;
             _rigidbody.angularVelocity = 0f;
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
-            transform.SetParent(holder);
+            transform.SetParent(holder.transform);
             transform.localPosition = Vector3.zero;
             owningSide = p_ownerSide;
         }
 
         public void OnThrown(Vector2 velocity)
         {
+            _currentHolder = null;
             transform.SetParent(null);
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.linearVelocity = velocity;
@@ -79,6 +92,7 @@ namespace BaskgayBall.Ball
 
         public void OnSettled()
         {
+            _currentHolder = null;
             State = BallState.Free;
         }
 
@@ -95,7 +109,8 @@ namespace BaskgayBall.Ball
         }
 
         // Single source of truth for "is this ball allowed to be grabbed by this side right now".
-        // Free balls are always grabbable, Held balls never are. InFlight balls are grabbable by
+        // Free balls are always grabbable. Held balls can only be stolen by the opposing side
+        // once the brief steal-immunity window has elapsed. InFlight balls are grabbable by
         // anyone EXCEPT the side that just threw them, and only for a short immunity window right
         // after release -- this is what stops a teammate (or the thrower's own overlapping collider)
         // from catching the ball the instant it leaves the hand, while still allowing a normal
@@ -107,7 +122,9 @@ namespace BaskgayBall.Ball
                 case BallState.Free:
                     return true;
                 case BallState.Held:
-                    return false;
+                    bool isOpposingSide = side != owningSide;
+                    bool withinStealImmunity = Time.time - _grabbedAtTime < stealImmunityDuration;
+                    return isOpposingSide && !withinStealImmunity;
                 case BallState.InFlight:
                     bool isSameSideAsThrower = side == owningSide;
                     bool withinImmunityWindow = Time.time - _thrownAtTime < sameSideGrabImmunityDuration;
