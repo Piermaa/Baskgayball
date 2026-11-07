@@ -39,7 +39,7 @@ namespace BaskgayBall.Persistence
 
             try
             {
-                SaveData loaded = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path_));
+                SaveData loaded = JsonUtility.FromJson<SaveData>(File.ReadAllText(Path_)) ?? new SaveData();
                 if (loaded.unlockedSkins == null || loaded.unlockedSkins.Count == 0)
                 {
                     loaded.unlockedSkins = new List<int> { 0 };

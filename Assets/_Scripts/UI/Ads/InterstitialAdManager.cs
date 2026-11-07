@@ -4,19 +4,41 @@ using UnityEngine;
 public class InterstitialAdManager : MonoBehaviour
 {
     private InterstitialAd interstitialAd;
+
+    private void Start()
+    {
+        MobileAds.Initialize(_ =>
+        {
+            if (this != null)
+            {
+                LoadInterstitial();
+            }
+        });
+    }
+
     private void OnEnable()
     {
+        GlobalEvents.OnStartMatch += GlobalEvents_OnStartMatch;
         GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
     }
 
     private void OnDisable()
     {
+        GlobalEvents.OnStartMatch -= GlobalEvents_OnStartMatch;
         GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;
+    }
+
+    private void GlobalEvents_OnStartMatch()
+    {
+        if (interstitialAd == null)
+        {
+            LoadInterstitial();
+        }
     }
 
     private void GlobalEvents_OnFinishMatch()
     {
-        LoadInterstitial();
+        ShowInterstitial();
     }
 
     private string GetInterstitialAdUnitId()
@@ -54,11 +76,15 @@ public class InterstitialAdManager : MonoBehaviour
                     return;
                 }
 
+                if (this == null)
+                {
+                    ad.Destroy();
+                    return;
+                }
+
                 interstitialAd = ad;
 
                 RegisterInterstitialEvents();
-
-                ShowInterstitial();
             }
         );
     }
@@ -83,6 +109,7 @@ public class InterstitialAdManager : MonoBehaviour
         {
             interstitialAd.Destroy();
             interstitialAd = null;
+            LoadInterstitial();
         };
 
         interstitialAd.OnAdFullScreenContentFailed += error =>
@@ -90,6 +117,8 @@ public class InterstitialAdManager : MonoBehaviour
             Debug.Log(
                 $"Error showing interstitial: {error}"
             );
+            interstitialAd.Destroy();
+            interstitialAd = null;
         };
     }
 
@@ -102,4 +131,3 @@ public class InterstitialAdManager : MonoBehaviour
         }
     }
 }
-

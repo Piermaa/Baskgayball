@@ -276,6 +276,15 @@ MonoBehaviour:
   landingReferenceSpeed: 5
   startWobbleTorque: 200
   uprightDeadZoneDegrees: 2
+  slideOffSpeed: 5.5
+  slideOffAcceleration: 28
+  layingAngleThreshold: 55
+  maxLayingDuration: 1.1
+  weighedDownTimerMultiplier: 2.2
+  layingRecoverySpringMultiplier: 5
+  layingRecoveryAngularSpeed: 160
+  layingRecoveryAngularAccel: 600
+  minLandingVelocityForSound: 1.5
   prefabRoot: {fileID: 1267295289375157538}
 --- !u!1 &3261544351611955228
 GameObject:

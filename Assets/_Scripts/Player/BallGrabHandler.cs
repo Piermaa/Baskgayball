@@ -1,11 +1,12 @@
 using BaskgayBall.Ball;
+using BaskgayBall.Core;
 using BaskgayBall.Input;
 using UnityEngine;
 
 namespace BaskgayBall.Player
 {
     [RequireComponent(typeof(Collider2D))]
-    public class BallGrabHandler : MonoBehaviour, IPrefabSubLogic
+    public class BallGrabHandler : MonoBehaviour, IPrefabSubLogic, IResettable
     {
         Transform IPrefabSubLogic.PrefabRoot => prefabRoot;
         [SerializeField] private Transform prefabRoot = null;
@@ -19,6 +20,24 @@ namespace BaskgayBall.Player
         private void Awake()
         {
             _sided = prefabRoot.GetComponent<ISided>();
+        }
+
+        private void OnEnable()
+        {
+            GlobalEvents.OnFinishRound += ResetState;
+        }
+
+        private void OnDisable()
+        {
+            GlobalEvents.OnFinishRound -= ResetState;
+        }
+
+        private void FixedUpdate()
+        {
+            if (_heldBall == null && _ballInRange != null)
+            {
+                TryGrab();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -59,6 +78,12 @@ namespace BaskgayBall.Player
             _heldBall.OnThrown(velocity);
             _heldBall = null;
             return true;
+        }
+
+        public void ResetState()
+        {
+            _heldBall = null;
+            _ballInRange = null;
         }
     }
 }

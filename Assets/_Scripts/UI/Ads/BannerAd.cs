@@ -9,7 +9,13 @@ namespace BaskgayBall
 
         private void Start()
         {
-            LoadBanner();
+            MobileAds.Initialize(_ =>
+            {
+                if (this != null)
+                {
+                    LoadBanner();
+                }
+            });
         }
 
         private void OnDestroy()

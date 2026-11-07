@@ -18,6 +18,7 @@ namespace BaskgayBall.Player
 
         [SerializeField] private BodyMovement bodyMovement;
         private PlayerModifiers _modifiers;
+        private TouchInputManager _subscribedInputManager;
         private bool finishedMatch = false;
         public EPlayerSide Side => side;
 
@@ -38,15 +39,28 @@ namespace BaskgayBall.Player
         {
             finishedMatch = false;
 
-            var manager = TouchInputManager.Instance;
-            if (manager != null)
-            {
-                manager.OnPlayerPressStart += HandlePressStart;
-                manager.OnPlayerPressEnd += HandlePressEnd;
-            }
+            TrySubscribeInput();
 
             GlobalEvents.OnFinishMatch += GlobalEvents_OnFinishMatch;
             GlobalEvents.OnStartMatch += GlobalEvents_OnStartMatch;
+        }
+
+        private void Start()
+        {
+            TrySubscribeInput();
+        }
+
+        private void TrySubscribeInput()
+        {
+            if (_subscribedInputManager != null) return;
+
+            var manager = TouchInputManager.Instance;
+            if (manager != null)
+            {
+                _subscribedInputManager = manager;
+                manager.OnPlayerPressStart += HandlePressStart;
+                manager.OnPlayerPressEnd += HandlePressEnd;
+            }
         }
 
         private void GlobalEvents_OnFinishMatch()
@@ -61,11 +75,11 @@ namespace BaskgayBall.Player
 
         private void OnDisable()
         {
-            var manager = TouchInputManager.Instance;
-            if (manager != null)
+            if (_subscribedInputManager != null)
             {
-                manager.OnPlayerPressStart -= HandlePressStart;
-                manager.OnPlayerPressEnd -= HandlePressEnd;
+                _subscribedInputManager.OnPlayerPressStart -= HandlePressStart;
+                _subscribedInputManager.OnPlayerPressEnd -= HandlePressEnd;
+                _subscribedInputManager = null;
             }
 
             GlobalEvents.OnFinishMatch -= GlobalEvents_OnFinishMatch;

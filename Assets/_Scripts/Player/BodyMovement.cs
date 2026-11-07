@@ -43,6 +43,24 @@ namespace BaskgayBall.Player
         [Tooltip("Rotation magnitude, in degrees, below which the body is considered upright with no established lean yet (e.g. right at round start). Below this, wobble direction falls back to spin, then facing.")]
         [SerializeField] private float uprightDeadZoneDegrees = 2f;
 
+        [Header("Anti-Stacking & Laying Recovery")]
+        [Tooltip("Target horizontal speed applied when airborne and resting on top of another character so they slide off.")]
+        [SerializeField] private float slideOffSpeed = 5.5f;
+        [Tooltip("Horizontal acceleration used to reach slideOffSpeed when stacked on another character.")]
+        [SerializeField] private float slideOffAcceleration = 28f;
+        [Tooltip("Tilt angle (in degrees) above which the character is considered laying down.")]
+        [SerializeField] private float layingAngleThreshold = 55f;
+        [Tooltip("Time (in seconds) a character can stay laying down before recovery boost kicks in.")]
+        [SerializeField] private float maxLayingDuration = 1.1f;
+        [Tooltip("Multiplier applied to laying timer progression when another character is on top weighing this character down.")]
+        [SerializeField] private float weighedDownTimerMultiplier = 2.2f;
+        [Tooltip("Maximum multiplier applied to upright spring strength when recovering from laying too long.")]
+        [SerializeField] private float layingRecoverySpringMultiplier = 5f;
+        [Tooltip("Minimum upright angular speed (deg/s) assisted when recovering from being pinned/laying too long.")]
+        [SerializeField] private float layingRecoveryAngularSpeed = 160f;
+        [Tooltip("Angular acceleration (deg/s^2) used to reach layingRecoveryAngularSpeed during forced recovery.")]
+        [SerializeField] private float layingRecoveryAngularAccel = 600f;
+
         [Header("Audio Settings")]
         [Tooltip("Minimum falling velocity magnitude required to trigger the landing sound.")]
         [SerializeField] private float minLandingVelocityForSound = 1.5f;
@@ -51,10 +69,13 @@ namespace BaskgayBall.Player
         [SerializeField] private Transform prefabRoot;
 
         private Rigidbody2D _rigidbody;
+        private Collider2D _collider;
+        private readonly ContactPoint2D[] _contacts = new ContactPoint2D[12];
         private bool _isHolding;
         private bool _wasGrounded;
         private EPlayerBodyRadgollState ragdollState;
         private float _previousVerticalVelocity;
+        private float _layingTimer;
         public bool IsGrounded { get; private set; }
 
         private PlayerModifiers _modifiers;
@@ -71,6 +92,7 @@ namespace BaskgayBall.Player
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            TryGetComponent(out _collider);
             _rigidbody.centerOfMass = groundCheck.localPosition;
 
             _baseGravityScale = _rigidbody.gravityScale;
@@ -94,6 +116,12 @@ namespace BaskgayBall.Player
 
         private void FixedUpdate()
         {
+            if (_modifiers != null && _modifiers.IsFrozen)
+            {
+                _layingTimer = 0f;
+                return;
+            }
+
             float timeScale = GetTimeScale();
             float accelerationScale = timeScale * timeScale;
             ApplyTimeScaleToBody(timeScale);
@@ -119,14 +147,42 @@ namespace BaskgayBall.Player
             _wasGrounded = groundedNow;
             IsGrounded = groundedNow;
 
-            if (IsGrounded && _surface != null && _surface.GroundHorizontalDrag > 0f)
+            EvaluatePlayerStackingContacts(out bool isStackedOnPlayer, out bool hasPlayerOnTop, out float slideDirection);
+
+            float tiltAngleDeg = Mathf.DeltaAngle(0f, _rigidbody.rotation);
+            float absTiltDeg = Mathf.Abs(tiltAngleDeg);
+
+            if (absTiltDeg >= layingAngleThreshold && (IsGrounded || hasPlayerOnTop || Mathf.Abs(_rigidbody.linearVelocity.y) < 1.5f))
+            {
+                float timerRate = hasPlayerOnTop ? weighedDownTimerMultiplier : 1f;
+                _layingTimer += Time.fixedDeltaTime * timeScale * timerRate;
+            }
+            else if (absTiltDeg < layingAngleThreshold * 0.4f)
+            {
+                _layingTimer = 0f;
+            }
+            else
+            {
+                _layingTimer = Mathf.Max(0f, _layingTimer - Time.fixedDeltaTime * timeScale);
+            }
+
+            bool isRecoveringFromLaying = _layingTimer >= maxLayingDuration && absTiltDeg >= layingAngleThreshold;
+
+            if (isStackedOnPlayer)
+            {
+                Vector2 velocity = _rigidbody.linearVelocity;
+                float targetVelocityX = slideDirection * slideOffSpeed * timeScale;
+                velocity.x = Mathf.MoveTowards(velocity.x, targetVelocityX, slideOffAcceleration * accelerationScale * Time.fixedDeltaTime);
+                _rigidbody.linearVelocity = velocity;
+            }
+            else if (IsGrounded && _surface != null && _surface.GroundHorizontalDrag > 0f)
             {
                 Vector2 velocity = _rigidbody.linearVelocity;
                 velocity.x *= Mathf.Max(0f, 1f - _surface.GroundHorizontalDrag * Time.fixedDeltaTime);
                 _rigidbody.linearVelocity = velocity;
             }
 
-            if (_rigidbody.linearVelocity.y < 0f)
+            if (_rigidbody.linearVelocity.y < 0f && !isStackedOnPlayer)
             {
                 _rigidbody.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1f) * accelerationScale * Time.fixedDeltaTime;
             }
@@ -140,21 +196,103 @@ namespace BaskgayBall.Player
                 case EPlayerBodyRadgollState.JustLanded:
                 case EPlayerBodyRadgollState.Wobblinng:
                 case EPlayerBodyRadgollState.Start:
-                    if (IsGrounded)
+                    if (IsGrounded || isRecoveringFromLaying)
                     {
-                        ApplyUprightSpring(timeScale);
+                        ApplyUprightSpring(timeScale, isRecoveringFromLaying);
                     }
                     break;
                 case EPlayerBodyRadgollState.Stable:
                     break;
                 case EPlayerBodyRadgollState.OnAir:
-                    _rigidbody.angularVelocity = 0f;
+                    if (isRecoveringFromLaying)
+                    {
+                        ApplyUprightSpring(timeScale, true);
+                    }
+                    else if (!isStackedOnPlayer)
+                    {
+                        _rigidbody.angularVelocity = 0f;
+                    }
                     break;
             }
 
             _previousVerticalVelocity = _rigidbody.linearVelocity.y;
         }
 
+        private void EvaluatePlayerStackingContacts(out bool isStackedOnPlayer, out bool hasPlayerOnTop, out float preferredSlideDirection)
+        {
+            isStackedOnPlayer = false;
+            hasPlayerOnTop = false;
+            preferredSlideDirection = 0f;
+
+            int contactCount = _rigidbody.GetContacts(_contacts);
+            if (contactCount == 0)
+            {
+                return;
+            }
+
+            Vector2 myCenter = _collider != null ? (Vector2)_collider.bounds.center : _rigidbody.worldCenterOfMass;
+            bool foundPlayerBelow = false;
+            Vector2 belowPlayerCenter = Vector2.zero;
+            float wallPushDirection = 0f;
+
+            for (int i = 0; i < contactCount; i++)
+            {
+                ContactPoint2D contact = _contacts[i];
+                Collider2D otherCol = contact.collider != null && contact.collider.attachedRigidbody != _rigidbody
+                    ? contact.collider
+                    : contact.otherCollider;
+
+                if (otherCol == null)
+                {
+                    continue;
+                }
+
+                Rigidbody2D otherBody = otherCol.attachedRigidbody;
+
+                if (otherBody != null && otherCol.gameObject.layer == gameObject.layer && otherCol.transform.root != transform.root)
+                {
+                    Vector2 otherCenter = otherCol.bounds.center;
+                    if (myCenter.y > otherCenter.y + 0.15f)
+                    {
+                        foundPlayerBelow = true;
+                        belowPlayerCenter = otherCenter;
+                    }
+                    else if (otherCenter.y > myCenter.y + 0.15f)
+                    {
+                        hasPlayerOnTop = true;
+                    }
+                }
+                else if ((groundLayer.value & (1 << otherCol.gameObject.layer)) == 0 && Mathf.Abs(contact.normal.x) > 0.5f)
+                {
+                    float deltaWallX = myCenter.x - otherCol.bounds.center.x;
+                    if (Mathf.Abs(deltaWallX) > 0.01f)
+                    {
+                        wallPushDirection = Mathf.Sign(deltaWallX);
+                    }
+                }
+            }
+
+            if (!IsGrounded && foundPlayerBelow)
+            {
+                isStackedOnPlayer = true;
+
+                if (Mathf.Abs(wallPushDirection) > 0.1f)
+                {
+                    preferredSlideDirection = wallPushDirection;
+                }
+                else if (Mathf.Abs(myCenter.x) > 6.2f)
+                {
+                    preferredSlideDirection = -Mathf.Sign(myCenter.x);
+                }
+                else
+                {
+                    float deltaX = myCenter.x - belowPlayerCenter.x;
+                    preferredSlideDirection = Mathf.Abs(deltaX) > 0.05f
+                        ? Mathf.Sign(deltaX)
+                        : (Mathf.Abs(myCenter.x) > 0.01f ? -Mathf.Sign(myCenter.x) : 1f);
+                }
+            }
+        }
 
         private void ApplyStartingWobble()
         {
@@ -194,14 +332,39 @@ namespace BaskgayBall.Player
             return facesRight ? -1f : 1f;
         }
 
-        private void ApplyUprightSpring(float timeScale)
+        private void ApplyUprightSpring(float timeScale, bool isRecoveringFromLaying = false)
         {
-            float angleRad = Mathf.DeltaAngle(0f, _rigidbody.rotation) * Mathf.Deg2Rad;
+            float tiltAngleDeg = Mathf.DeltaAngle(0f, _rigidbody.rotation);
+            float angleRad = tiltAngleDeg * Mathf.Deg2Rad;
             float angularVelocityRad = _rigidbody.angularVelocity * Mathf.Deg2Rad;
-            float torque = -SpringStrength * timeScale * timeScale * angleRad
-                           -SpringDamping * timeScale * angularVelocityRad;
+
+            float springMultiplier = 1f;
+            float baseSpring = SpringStrength;
+            if (isRecoveringFromLaying)
+            {
+                float recoveryProgress = Mathf.Clamp01((_layingTimer - maxLayingDuration) / 0.5f);
+                springMultiplier = Mathf.Lerp(1.5f, layingRecoverySpringMultiplier, recoveryProgress);
+                baseSpring = Mathf.Max(baseSpring, uprightSpringStrength);
+            }
+
+            float torque = -baseSpring * springMultiplier * timeScale * timeScale * angleRad
+                           - SpringDamping * timeScale * angularVelocityRad;
             _rigidbody.AddTorque(torque);
+
+            if (isRecoveringFromLaying)
+            {
+                float uprightDirection = -Mathf.Sign(tiltAngleDeg);
+                float desiredAngularVelocity = uprightDirection * layingRecoveryAngularSpeed * timeScale;
+                if (_rigidbody.angularVelocity * uprightDirection < Mathf.Abs(desiredAngularVelocity))
+                {
+                    _rigidbody.angularVelocity = Mathf.MoveTowards(
+                        _rigidbody.angularVelocity,
+                        desiredAngularVelocity,
+                        layingRecoveryAngularAccel * timeScale * timeScale * Time.fixedDeltaTime);
+                }
+            }
         }
+
         public void Jump()
         {
             if (!IsGrounded) return;
@@ -239,6 +402,7 @@ namespace BaskgayBall.Player
         {
             ragdollState = EPlayerBodyRadgollState.Start;
             IsGrounded = true;
+            _layingTimer = 0f;
             ApplyStartingWobble();
         }
     }

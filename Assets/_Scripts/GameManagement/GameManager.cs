@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
     {
         if (paused) SaveGame();
     }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
 }
 
 [System.Serializable]

@@ -34,6 +34,7 @@ namespace BaskgayBall.Ball
         private Rigidbody2D _rigidbody;
         private EPlayerSide owningSide;
         private float _thrownAtTime = float.NegativeInfinity;
+        private bool _outOfBoundsTriggered;
 
         private void Awake()
         {
@@ -118,8 +119,14 @@ namespace BaskgayBall.Ball
 
         private void FixedUpdate()
         {
+            if (_outOfBoundsTriggered || RoundManager.Instance == null)
+            {
+                return;
+            }
+
             if (RoundManager.Instance.IsBallOutOfBounds(transform))
             {
+                _outOfBoundsTriggered = true;
                 RoundManager.Instance.EndRound(ERoundEndReason.OOB, owningSide);
             }
         }

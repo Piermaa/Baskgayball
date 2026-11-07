@@ -49,6 +49,8 @@ public class RoundManager : MonoBehaviour, IResettable
     [SerializeField] private SurfaceController surfaceController;
     public SurfaceProfile CurrentSurface => surfaceController != null ? surfaceController.Current : null;
 
+    private bool _isRoundEnding;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -61,10 +63,19 @@ public class RoundManager : MonoBehaviour, IResettable
         }
     }
 
+    private void OnDisable()
+    {
+        if (Instance == this)
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
     private void OnDestroy()
     {
         if (Instance == this)
         {
+            Time.timeScale = 1f;
             Instance = null;
         }
     }
@@ -76,6 +87,7 @@ public class RoundManager : MonoBehaviour, IResettable
 
     private void StartRound()
     {
+        _isRoundEnding = false;
         if (surfaceController != null) surfaceController.Roll();
         GlobalEvents.DispatchResetRound(true);
         Instantiate(BasketHelpers.GetRandomElement(ballPrefabs), ballSpawnPosition);
@@ -120,15 +132,20 @@ public class RoundManager : MonoBehaviour, IResettable
 
     public void EndRound(ERoundEndReason endReason, EPlayerSide playerSide, int amount = 1)
     {
+        if (_isRoundEnding || endReason == ERoundEndReason.None)
+        {
+            return;
+        }
+
         switch (endReason)
         {
-            case ERoundEndReason.None:
-                break;
             case ERoundEndReason.Goal:
+                _isRoundEnding = true;
                 bool isGameFinished = AddScore(playerSide, amount);
                 StartCoroutine(ResolveScoreChange(isGameFinished));
                 break;
             case ERoundEndReason.OOB:
+                _isRoundEnding = true;
                 ResetState();
                 break;
         }
@@ -139,6 +156,8 @@ public class RoundManager : MonoBehaviour, IResettable
         Time.timeScale = onScoreTimeScale;
         yield return new WaitForSecondsRealtime(onScoreResolveDelay);
 
+        Time.timeScale = 1f;
+
         if (gameFinished)
         {
             FinishMatch();
@@ -147,9 +166,6 @@ public class RoundManager : MonoBehaviour, IResettable
         {
             ResetState();
         }
-
-        Time.timeScale = 1;
-        yield break;
     }
 
 
@@ -175,6 +191,7 @@ public class RoundManager : MonoBehaviour, IResettable
     private void FinishMatch()
     {
         GameManager.Instance.CoinsMng.AddCoins(coinsToAddWhenMatchEnds);
+        GameManager.Instance.SaveGame();
         GlobalEvents.DispatchFinishMatch();
     }
 }

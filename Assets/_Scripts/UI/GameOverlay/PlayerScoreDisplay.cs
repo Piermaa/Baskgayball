@@ -19,9 +19,9 @@ public class PlayerScoreDisplay : MonoBehaviour, ISided
 
     private void OnScoreChange(int player1Score, int player2Score, EPlayerSide scoringPlayer)
     {
-        if (scoringPlayer == playerSide)
+        if (scoringPlayer == playerSide || scoringPlayer == EPlayerSide.None)
         {
-            switch (scoringPlayer)
+            switch (playerSide)
             {
                 case EPlayerSide.Player1:
                     text.text = player1Score.ToString();
