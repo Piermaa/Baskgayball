@@ -10,6 +10,11 @@ public class SceneLoader : MonoBehaviour
     public void StartGame()
     {
         AudioManager.Instance?.PlayButtonPress();
+        bool fromMenu = SceneManager.GetActiveScene().name == menuScene;
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetStartedFromMenu(fromMenu);
+        }
         LoadScene(gameScene);
     }
 

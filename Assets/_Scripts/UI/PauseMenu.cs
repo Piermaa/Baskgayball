@@ -129,6 +129,11 @@ public class PauseMenu : MonoBehaviour
             TouchInputManager.Instance.enabled = true;
         }
 
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetStartedFromMenu(false);
+        }
+
         string currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
     }

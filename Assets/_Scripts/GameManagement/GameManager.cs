@@ -3,6 +3,7 @@ using BaskgayBall.Persistence;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +13,17 @@ public class GameManager : MonoBehaviour
     private CoinsManager coinsMng = new();
     private ISaveService saveService;
 
+    [Header("Scenes")]
+    [SerializeField] private string mainMenuSceneName = "MainMenu";
+
     public GameModeManager GameModeMng => gameModeMng;
     public CoinsManager CoinsMng => coinsMng;
     public CosmeticsManager CosmeticsMng => cosmeticsMng;
+
+    public bool StartedFromMenu { get; private set; } = true;
+    public bool IsDirectPlayInEditor { get; private set; } = false;
+
+    private string lastLoadedSceneName = string.Empty;
     
     private void Awake()
     {
@@ -41,10 +50,31 @@ public class GameManager : MonoBehaviour
         });
     }
 
+    public void SetStartedFromMenu(bool value)
+    {
+        StartedFromMenu = value;
+        IsDirectPlayInEditor = false;
+    }
+
     private void OnInit()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Scene activeScene = SceneManager.GetActiveScene();
+        lastLoadedSceneName = activeScene.name;
+        if (activeScene.name == mainMenuSceneName)
+        {
+            StartedFromMenu = true;
+            IsDirectPlayInEditor = false;
+        }
+        else
+        {
+            IsDirectPlayInEditor = true;
+            StartedFromMenu = true;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         saveService = new JsonFileSaveService();
 
@@ -53,6 +83,40 @@ public class GameManager : MonoBehaviour
         cosmeticsMng.InitUnlockedSkins(data.unlockedSkins);
         cosmeticsMng.SetPlayerSelectedSkin(EPlayerSide.Player1, data.skinSelectedPlayer1);
         cosmeticsMng.SetPlayerSelectedSkin(EPlayerSide.Player2, data.skinSelectedPlayer2);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (IsDirectPlayInEditor && scene.name == lastLoadedSceneName)
+        {
+            return;
+        }
+
+        if (scene.name == mainMenuSceneName)
+        {
+            StartedFromMenu = true;
+            IsDirectPlayInEditor = false;
+        }
+        else if (lastLoadedSceneName == mainMenuSceneName)
+        {
+            StartedFromMenu = true;
+            IsDirectPlayInEditor = false;
+        }
+        else
+        {
+            StartedFromMenu = false;
+            IsDirectPlayInEditor = false;
+        }
+
+        lastLoadedSceneName = scene.name;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 
     private void OnApplicationPause(bool paused)
