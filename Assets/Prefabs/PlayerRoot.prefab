@@ -162,12 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18fa390de2cf129343b58407ee28468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.Player.PlayerPowerUpVisuals
-  modifiers: {fileID: 0}
+  modifiers: {fileID: 3070422309240983958}
   feetPoint: {fileID: 0}
   bodyPoint: {fileID: 0}
   headPoint: {fileID: 0}
   characterRenderers: []
-  bootsSprite: {fileID: 6374472122326772645, guid: 254d18c8f32c48c4db67ea94369ed146, type: 3}
+  bootsSprite: {fileID: 21300000, guid: 22e89bb46e32d6b4eb1d1ceb16c019d2, type: 3}
   bootsPrefab: {fileID: 0}
   bootsOffset: {x: 0, y: 0, z: 0}
   bootsScale: {x: 1, y: 1, z: 1}
@@ -180,7 +180,7 @@ MonoBehaviour:
   coldTintColor: {r: 0.5, g: 0.8, b: 1, a: 1}
   snowflakesVfxPrefab: {fileID: 5241908060202700206, guid: f8044477d1ccea64d89bcac24d5e953e, type: 3}
   snowflakesOffset: {x: 0, y: 0, z: 0}
-  invertJumpVfxPrefab: {fileID: 0}
+  invertJumpVfxPrefab: {fileID: 2428315666720390311, guid: a5400bcac20d76f44bfb86eefc6d79d5, type: 3}
   invertJumpOffset: {x: 0, y: 0.8, z: 0}
 --- !u!1 &2108953484969260044
 GameObject:
@@ -850,7 +850,7 @@ HingeJoint2D:
   m_BreakAction: 1
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.013999939, y: 0.7279999}
+  m_ConnectedAnchor: {x: 0.014, y: 0.728}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
