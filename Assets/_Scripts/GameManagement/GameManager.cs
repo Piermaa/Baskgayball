@@ -16,6 +16,21 @@ public class GameManager : MonoBehaviour
     [Header("Scenes")]
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
+    [Header("Performance")]
+    [SerializeField] private int minTargetFrameRate = 60;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void ConfigureDefaultFrameRate()
+    {
+        ApplyTargetFrameRate(60);
+    }
+
+    private static void ApplyTargetFrameRate(int minimumFps)
+    {
+        int screenRefreshRate = Mathf.RoundToInt((float)Screen.currentResolution.refreshRateRatio.value);
+        Application.targetFrameRate = Mathf.Max(minimumFps, screenRefreshRate);
+    }
+
     public GameModeManager GameModeMng => gameModeMng;
     public CoinsManager CoinsMng => coinsMng;
     public CosmeticsManager CosmeticsMng => cosmeticsMng;
@@ -60,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        ApplyTargetFrameRate(minTargetFrameRate);
 
         Scene activeScene = SceneManager.GetActiveScene();
         lastLoadedSceneName = activeScene.name;

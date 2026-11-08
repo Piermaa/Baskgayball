@@ -8,6 +8,7 @@ public class SafeArea : MonoBehaviour
     private Rect lastSafeArea;
     private int lastScreenWidth;
     private int lastScreenHeight;
+    private ScreenOrientation lastOrientation;
 
     private void Awake()
     {
@@ -18,9 +19,20 @@ public class SafeArea : MonoBehaviour
 
     private void Update()
     {
-        if (Screen.safeArea != lastSafeArea ||
-            Screen.width != lastScreenWidth ||
-            Screen.height != lastScreenHeight)
+        if (Screen.width != lastScreenWidth ||
+            Screen.height != lastScreenHeight ||
+            Screen.orientation != lastOrientation)
+        {
+            ApplySafeArea();
+        }
+    }
+
+    private void OnRectTransformDimensionsChange()
+    {
+        if (rectTransform != null &&
+            (Screen.width != lastScreenWidth ||
+             Screen.height != lastScreenHeight ||
+             Screen.orientation != lastOrientation))
         {
             ApplySafeArea();
         }
@@ -28,7 +40,17 @@ public class SafeArea : MonoBehaviour
 
     private void ApplySafeArea()
     {
+        if (Screen.width <= 0 || Screen.height <= 0) return;
+
         Rect safeArea = Screen.safeArea;
+        lastScreenWidth = Screen.width;
+        lastScreenHeight = Screen.height;
+        lastOrientation = Screen.orientation;
+
+        if (safeArea == lastSafeArea && rectTransform.anchorMin != Vector2.zero)
+        {
+            return;
+        }
 
         Vector2 anchorMin = safeArea.position;
         Vector2 anchorMax = safeArea.position + safeArea.size;
@@ -46,7 +68,5 @@ public class SafeArea : MonoBehaviour
         rectTransform.offsetMax = Vector2.zero;
 
         lastSafeArea = safeArea;
-        lastScreenWidth = Screen.width;
-        lastScreenHeight = Screen.height;
     }
 }
