@@ -481,3 +481,8 @@ MonoBehaviour:
   negativeColor: {r: 1, g: 0, b: 0, a: 1}
   iconRenderer: {fileID: 6954404925839498774}
   iconBgRenderer: {fileID: 5659377681816205525}
+  spawnVfxPrefab: {fileID: 7006917111536350689, guid: d670abececec3224b99f9b7736b33a1b, type: 3}
+  pickupVfxPrefab: {fileID: 8838616601113059186, guid: 6f70571bb3629ba42ab27a1ce69180a4, type: 3}
+  spawnVfxDuration: 1
+  visualsRoot: {fileID: 0}
+  hideVisualsDuringSpawnVfx: 1
