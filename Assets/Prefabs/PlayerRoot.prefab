@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 949910156052696973}
   - component: {fileID: 3070422309240983958}
   - component: {fileID: 2434103624697457492}
+  - component: {fileID: -5894478580718994198}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Untagged
@@ -149,6 +150,38 @@ MonoBehaviour:
   bodies:
   - {fileID: 5827692688320691653}
   - {fileID: 7986018771956959808}
+--- !u!114 &-5894478580718994198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846225810727631591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18fa390de2cf129343b58407ee28468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.Player.PlayerPowerUpVisuals
+  modifiers: {fileID: 0}
+  feetPoint: {fileID: 0}
+  bodyPoint: {fileID: 0}
+  headPoint: {fileID: 0}
+  characterRenderers: []
+  bootsSprite: {fileID: 6374472122326772645, guid: 254d18c8f32c48c4db67ea94369ed146, type: 3}
+  bootsPrefab: {fileID: 0}
+  bootsOffset: {x: 0, y: 0, z: 0}
+  bootsScale: {x: 1, y: 1, z: 1}
+  chainsSprite: {fileID: 503370413376081529, guid: b721ddbf0308e8147973d217a93364bc, type: 3}
+  chainsPrefab: {fileID: 0}
+  chainsOffset: {x: 0, y: 0, z: 0}
+  chainsScale: {x: 1, y: 1, z: 1}
+  feetSortingLayerName: Player_Body
+  feetSortingOrder: 10
+  coldTintColor: {r: 0.5, g: 0.8, b: 1, a: 1}
+  snowflakesVfxPrefab: {fileID: 5241908060202700206, guid: f8044477d1ccea64d89bcac24d5e953e, type: 3}
+  snowflakesOffset: {x: 0, y: 0, z: 0}
+  invertJumpVfxPrefab: {fileID: 0}
+  invertJumpOffset: {x: 0, y: 0.8, z: 0}
 --- !u!1 &2108953484969260044
 GameObject:
   m_ObjectHideFlags: 0

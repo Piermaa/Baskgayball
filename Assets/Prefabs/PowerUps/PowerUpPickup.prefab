@@ -482,7 +482,15 @@ MonoBehaviour:
   iconRenderer: {fileID: 6954404925839498774}
   iconBgRenderer: {fileID: 5659377681816205525}
   spawnVfxPrefab: {fileID: 7006917111536350689, guid: d670abececec3224b99f9b7736b33a1b, type: 3}
-  pickupVfxPrefab: {fileID: 8838616601113059186, guid: 6f70571bb3629ba42ab27a1ce69180a4, type: 3}
   spawnVfxDuration: 1
+  stopSpawningLeadTime: 0.5
+  spawnRadialBurstVfxPrefab: {fileID: 3571298449532628802, guid: 3d8dfa804203add4a8f41d6fad7f8853, type: 3}
+  pickupVfxPrefab: {fileID: 8838616601113059186, guid: 6f70571bb3629ba42ab27a1ce69180a4, type: 3}
   visualsRoot: {fileID: 0}
   hideVisualsDuringSpawnVfx: 1
+  despawnWarningDuration: 1.8
+  despawnPulseSpeed: 8
+  despawnPulseScaleAmount: 0.2
+  despawnAcceleratePulse: 1
+  despawnPulseAlpha: 1
+  despawnMinAlpha: 0.35

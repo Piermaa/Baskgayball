@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2573348936584967073}
   - component: {fileID: 808454158265899752}
   - component: {fileID: 3929274049567334293}
+  - component: {fileID: -3156967120269190708}
   m_Layer: 12
   m_Name: Shield
   m_TagString: Untagged
@@ -157,6 +158,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.05}
   m_Size: {x: 1, y: 0.6}
   m_Direction: 1
+--- !u!114 &-3156967120269190708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701742744229532133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a7e2b109dc3484f9b81234c0de9871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaskgayBall.PowerUps.HoopShieldVisuals
+  shieldRenderer: {fileID: 808454158265899752}
+  enablePulse: 1
+  pulseSpeed: 4
+  minAlpha: 0.65
+  maxAlpha: 1
+  enableScalePulse: 1
+  scalePulseAmount: 0.05
+  impactSparksPrefab: {fileID: 8181025064320140654, guid: ca554f63353490d44a9dcf53ccd8d7e1, type: 3}
+  impactFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.12
+  activationVfxPrefab: {fileID: 8043850090375241006, guid: b9c0cf864895c3841a5479aca6efd4c2, type: 3}
 --- !u!1 &6997231397203378712
 GameObject:
   m_ObjectHideFlags: 0
