@@ -1189,7 +1189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7555106626293004860}
   - component: {fileID: 5851959200890648489}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PlayerBoundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
